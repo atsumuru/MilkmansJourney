@@ -4,6 +4,17 @@
 
 
 
+
+void routeReset(int list[4])
+{ 
+	int i; 
+	for(i = 0; i < 4; i++) 
+	{ 
+		list[i] = 1;
+	} 
+}
+
+
 int routeCheck(int list[4]) 
 { 
 	int i; 
@@ -23,7 +34,7 @@ int routeCheck(int list[4])
 }
 
 
-void onlyChance() 
+void onlyRock() 
 { 
 	printf("While on your way out of the house you feel something heavy in your pocket. You reach into your pocket and find" 
 					" a random rock just sitting there.\n\n[Annoying Rock] has been added to inventory.\n\n"); 
@@ -55,20 +66,54 @@ int main()
 	int list_full = 1;
 
 
-	while(quit != y) //Need to make it so that when it selects a route it removes the option, so no duplicate runs
+	while(quit != y) 
 	{ 
+		if(rock > 0) 
+		{ 
+			onlyRock(); 
+		} 
+
+	  printf("You start with 20 Hp and 100 dollars in your wallet as you leave your house./n/n");
+	
 		while(list_full == 1) 
 		{
-			random_select = rand()%4+1; //Also need to restore after end of loop
+			random_select = rand()%4+1; 
 			if(selection_list[random_select-1] != 0) 
 			{ 
 				if(random_select == 1) 
 				{ 
-					//Dean's route is called 
+					//Dean's route function is called 
 					selection_list[0] = 0; 
 					quit = quit(); 
 					list_full = routeCheck(selection_list); 
 				} 
 				else if(random_select == 2) 
 				{ 
-					
+					//Esra's route function is called 
+					selection_list[1] = 0; 
+					quit = quit(); 
+					list_full = routeCheck(selction_list);
+				} 
+        else if(random_select == 3)
+        {
+          //Payton's route function is called
+          selection_list[2] = 0;
+          quit = quit();
+          list_full = routeCheck(selction_list);
+        }
+        else if(random_select == 4)
+        {
+          //Fred's route function is called
+          selection_list[3] = 0;
+          quit = quit();
+          list_full = routeCheck(selction_list);
+        }
+			}
+		} 
+		routeReset(selection_list); 
+		//Write two function; one that checks to see if all special items slots are full, and another to see if the rock's in the main invent 
+		//If statements here to initialize secret ending or loop again 
+		printf("After a daring journey, you finally make it to the store... only to find that it's closed. You then spot a lone cartoon of milk" 
+					" sitting by the door. A tear comes to your eye as you think that this was a higher being's blessing for your troubles. "
+					"You pick up the milk, but upon closer inspection, you realize that it was soy milk. A look of utter disdain forms on" 
+					" your face as you drop the milk and walk out into the street
