@@ -1,6 +1,7 @@
 #include <stdio.h> 
 #include <stdlib.h>
-#include <time.h> 
+#include <time.h>  
+#include "creamCrop.h"
 
 
 
@@ -63,7 +64,8 @@ int main()
 	int selection_list[4] = {1, 1, 1, 1}; 
 	int random_select; 
 	char quit; 
-	int list_full = 1;
+	int list_full = 1; 
+	int restart = 0;
 
 
 	while(quit != y) 
@@ -73,7 +75,16 @@ int main()
 			onlyRock(); 
 		} 
 
-	  printf("You start with 20 Hp and 100 dollars in your wallet as you leave your house./n/n");
+	  printf("You start with 20 Hp and 100 dollars in your wallet as you leave your house./n/n"); 
+		
+		if(restart > 0) 
+		{ 	
+			printf("You can still feel the stuff you gathered still in your pocket.\n\n");
+		} 
+		else 
+		{ 
+			restart = 1; 
+		}
 	
 		while(list_full == 1) 
 		{
@@ -113,7 +124,9 @@ int main()
 		routeReset(selection_list); 
 		//Write two function; one that checks to see if all special items slots are full, and another to see if the rock's in the main invent 
 		//If statements here to initialize secret ending or loop again 
-		printf("After a daring journey, you finally make it to the store... only to find that it's closed. You then spot a lone cartoon of milk" 
-					" sitting by the door. A tear comes to your eye as you think that this was a higher being's blessing for your troubles. "
-					"You pick up the milk, but upon closer inspection, you realize that it was soy milk. A look of utter disdain forms on" 
-					" your face as you drop the milk and walk out into the street
+		printf("After a daring journey, you finally make it to the store... only to find that it's closed. You then spot a lone cartoon of milk"
+          " sitting by the door. A tear comes to your eye as you think that this was a higher being's blessing for\nyour troubles. "
+          "You pick up the milk, but upon closer inspection, you realize that it was soy milk. A look of utter disdain forms on"
+          " your face as you drop the milk and walk out into the street. You spread yours arms and fall into\nthe path of an incoming truck."
+          "\n\nYou wake up back in your house and you begrudgingly roll out bed, ready to do all of that again.\n\nHere we go again...\n");
+	}
