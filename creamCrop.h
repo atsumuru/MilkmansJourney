@@ -8,7 +8,7 @@ typedef struct
 }Player;
 
 
-
+char quit();
 
 
 
