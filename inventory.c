@@ -73,7 +73,7 @@ void initSpecial(SpecialInventory * inv)
   inv -> emptyBottle = 0;
   inv -> grilledCheese = 0;
   inv -> umbrella = 0;
-  inv -> rubberChicken;
+  inv -> rubberChicken = 0;;
 }
 
 // initialize secret inv
