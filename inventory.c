@@ -19,6 +19,12 @@ typedef struct
 {
   char items[MAX_SPECIAL][SIZE];
   int count;
+  
+  int emptyBottle;
+  int grilledCheese;
+  int umbrella;
+  int rubberChicken;
+  
 } SpecialInventory;
 
 // struct for secret inv
@@ -27,6 +33,12 @@ typedef struct
 {
   char items[MAX_SECRET][SIZE];
   int count;
+  
+  int butter;
+  int yogurt;
+  int iceCream;
+  int cheese;
+  
 } SecretInventory;
 
 // initialize player stats
@@ -57,6 +69,11 @@ void initSpecial(SpecialInventory * inv)
   {
     strcpy(inv -> items[i], ".....");
   }
+  
+  inv -> emptyBottle = 0;
+  inv -> grilledCheese = 0;
+  inv -> umbrella = 0;
+  inv -> rubberChicken;
 }
 
 // initialize secret inv
@@ -70,6 +87,11 @@ void initSecret(SecretInventory * inv)
   {
     strcpy(inv -> items[i], ".....");
   }
+  
+  inv -> butter = 0;
+  inv -> yogurt = 0;
+  inv -> iceCream = 0;
+  inv -> cheese = 0;
 }
 
 // add special items
@@ -82,6 +104,26 @@ void addSpecial(SpecialInventory * inv, char itemName[])
     inv -> count++;
     
     printf("You found [SPECIAL ITEM]: %s\n", itemName);
+    
+    if (strcmp(itemName, "Empty Bottle") == 0)
+    {
+      inv -> emptyBottle = 1;
+    }
+      
+    else if (strcmp(itemName, "Grilled Cheese") == 0)
+    {
+      inv -> grilledCheese = 1;
+    }
+      
+    else if (strcmp(itemName, "Umbrella") == 0)
+    {
+      inv -> umbrella = 1;
+    }
+    else if (strcmp(itemName, "Rubber Chicken of Doom") == 0)
+    {
+      inv -> rubberChicken = 1;
+    }
+    
   }
   else
   {
@@ -98,6 +140,24 @@ void addSecret(SecretInventory * inv, char itemName[])
     strcpy(inv -> items [inv -> count], itemName);
     inv -> count++;
     printf("You found [SECRET ITEM]: %s\n", itemName);
+    
+    if (strcmp(itemName, "Butter") == 0)
+    {
+      inv -> butter = 1;
+    }
+      
+    else if (strcmp(itemName, "Yogurt") == 0)
+    {
+      inv -> yogurt = 1;
+    }
+      
+    else if (strcmp(itemName, "Ice Cream") == 0)
+    {
+      inv -> iceCream = 1;
+    }
+    else if (strcmp(itemName, "Cheese") == 0)
+    {
+      inv -> cheese = 1;
   }
   else
   {
@@ -143,13 +203,6 @@ int main () {
   initPlayer(&player);
   initSpecial(&special);
   initSecret(&secret);
-  
-  
-  // addSpecial (&special, "enter name");
-  // for adding special items from route
-  
-  // addSecret (&secret, "enter name");
-  // for adding secret items from route
   
   while (choice != 4)
   {
