@@ -123,17 +123,18 @@ void sceneTwo (int * hp, int * money)
     else if (choice == 2)
     {
       printf ("You are too cautious and the milk wave crashes into you and pulls you under.\n");
-      printf ("You lose 25 HP.\n");
+      printf ("You lose 10 HP.\n");
       printf ("\nTry again! :)\n");
       
-      * hp -= 25;
+      * hp -= 10;
     }
-    else
+    else if (choice == 3)
     {
       printf ("You purposefully slam yourself against one of the wall mirrors.\n\n");
       
       printf ("You take some minor damage (lose 5 HP), but you successfully find a hidden passage and escape!\n");
       
+      * hp -= 5;
       escape = 1;
     }
   }
@@ -141,7 +142,7 @@ void sceneTwo (int * hp, int * money)
 
 // scene three
 
-void sceneThree (int * hp, int * money)
+void sceneThree (int * hp, int * money, Inventory *inv)
 {
   int choice;
   
@@ -181,8 +182,9 @@ void sceneThree (int * hp, int * money)
     printf ("He gives you an Umbrella, 10 money, and you earn 15 HP.\n");
     printf ("(don't ask how. explaination: magic)\n\n");
     
+    inv -> UM = 1;
     * money += 10;
-    * money += 15;
+    * hp += 15;
     
     
     printf ("You thank the cow and turn around to find a NEW doorway!\n");
@@ -200,7 +202,7 @@ void sceneThree (int * hp, int * money)
 
 // scene four
 
-void sceneFour (int * hp, int * money)
+void sceneFour (int * hp, int * money, Inventory *inv)
 {
   int choice;
 
@@ -213,12 +215,16 @@ void sceneFour (int * hp, int * money)
   
   printf ("\nYou sigh. You just want your jug of milk!\n");
   
-  if (inv -> EB == 1)
+  if (inv -> RC == 1)
   {
     printf ("\nYou choose to: \n");
     pritnf ("1. Bang on the mirror\n");
-    pritnf ("2. Throw the Rubber Chicken of Doom at the mirror.\n");
-    printf ("3. Break the mirror.\n");
+    printf ("2. Break the mirror.\n");
+    
+    if (inv -> RC == 1)
+    {
+    pritnf ("3. Throw the Rubber Chicken of Doom at the mirror.\n");
+    }
     
     printf ("\nYou enter: \n");
     scanf ("%d", &choice)
@@ -228,16 +234,16 @@ void sceneFour (int * hp, int * money)
       printf ("\nYou bang on the mirror. The milk jug disappears.\n");
       printf ("Try again! :)");
     }
-    if else (choice == 2)
+    else if (choice == 2)
+    {
+      printf ("\nYou break the mirror but all that's left is broken glass on an empty frame.\n");
+      printf ("\nTry again! :)\n");
+    }
+    else if (choice == 3 && inv -> RC == 1)
     {
       printf ("\nYou throw the Rubber Chicken of Doom at the mirror. It goes into it.\n");
       printf ("You blink.\n");
       printf ("You move through the portal.\n");
-    }
-    else
-    {
-      printf ("\nYou break the mirror but all that's left is broken glass on an empty frame.\n");
-      printf ("\nTry again! :)\n");
     }
   }
   else
@@ -265,19 +271,22 @@ void sceneFour (int * hp, int * money)
 }
 
 
-void playRandomScene(int *hp, int *money)
+void playRandomScene(int *hp, int *money, Inventory *inv)
 {
     int r = rand() % 4;
 
     if (r == 0) sceneOne(hp, money);
     else if (r == 1) sceneTwo(hp, money);
-    else if (r == 2) sceneThree(hp, money);
-    else sceneFour(hp, money);
+    else if (r == 2) sceneThree(hp, money, inv);
+    else sceneFour(hp, money, inv);
 }
 
-void umbrellaRoute (int *hp, int *moeny)
+// main
+
+void umbrellaRoute (int *hp, int *money, Inventory *inv)
 {
-  srand(time(NULL));
+  int quitting = 0;
+  char q;
 
   printf ("You find yourself in a room full of mirrors, with no clue of how far they go.\n");
   printf ("Suddenly, a milk jog appears, somewhere inside the room.\n");
@@ -287,14 +296,21 @@ void umbrellaRoute (int *hp, int *moeny)
   
   printf ("\nYou have entered the MIRROR REALM.\n");
   
-  while (hp > 0)
+  while (quitting != 0 && hp > 0)
   {
-    plaYRandomScene(&hp, &money);
+    playRandomScene(hp, money, inv);
     
-    if (hp <= 0)
+    if (*hp <= 0)
     {
       printf ("\nYou have collapsed in the mirror realm.\n");
       break;
+    }
+    
+    q = quit();
+    
+    if (q == 'y')
+    {
+      quitting = 1;
     }
   }
   
