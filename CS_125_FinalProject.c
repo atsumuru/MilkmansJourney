@@ -8,6 +8,9 @@
 
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
 
 
 //brainstorming:
@@ -18,12 +21,54 @@
 //if the player inputs an incompatable character, they punch themselves and take damage.
 
 
+
+
+//Random Function: Generate and return a random int between 1 and 10
+
+int randGen(int param)
+  {
+  printf("this is running\n");
+  srand(time(NULL));
+  int randNum;
+  
+  randNum = rand()%param+1;
+  
+  
+
+  int num = 0;
+  num = rand()%param+1;
+  printf("%d\n",num);
+
+  
+  return randNum;
+  
+  }
+  
+  
+int confusion()  //triggers upon invalid player input
+  {
+  
+  //Damage - 5
+  
+  return 0;
+  }
+  
+void E1O1()
+  {
+  
+  
+
+  }
+  
+  
+  
+
 //Opening
         //Player finds themselves standing in front of a tall dungeon door. Entering the door they find an opening  
 
 //Encounter 1
         //Puzzle encounter, in the entrance opening, a large gap between the player and the next room prevents them from continuing. Get over the gap.
-        //Examining your surroundings, you find torches lining the wall of the entrance, a broken bridge along the chasm, and a fountain that pours directly to it, along your side. Stalacttites line the cieling of this faintly dim            room.
+        //Examining your surroundings, you find torches lining the wall of the entrance, a broken bridge along the chasm, and a fountain that pours directly to it, along your side. Stalacttites line the cieling of this faintly dim room.
   //option A1: Jump Across?
         //Outcome AA1: Ur too fat, you fall. take damage and climb back up, take lots of damage. try another option.
         //Outcome AA2: Your atheltic prowess overcomes adversity as you effortlessly leap across the chasm. Go to encounter 2.
@@ -113,8 +158,51 @@
 
 
 
+
+
 int main()
 {
-//
+/*
+	printf("this is running\n");
+  srand(time(NULL));
+  int num = 0;
+  num = rand()%10+1;
+  printf("%d",num);
   return 0;
+  */
+  
+  randGen(100);
+  
+  //Debugging done
+  
+  char playerSelect = 0;
+  
+  
+  //Start Encounter 1
+  
+  printf("A chasm stands before you, what to do");
+  scanf("%d",&playerSelect);
+  
+  if(playerSelect ==1)
+    {
+    //trigger outcome 1
+    //param 3
+    }
+  else if (playerSelect ==2)
+    {
+    //trigger outcome 2
+    }  
+  else if (playerSelect ==3)
+    {
+    //trigger outcome 3
+    }
+  else
+    {
+    confusion() //punich misinput
+    }
+  
+  
+  
+  
+  
 }
