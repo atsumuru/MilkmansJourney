@@ -26,6 +26,13 @@ typedef struct
   
 } Inventory;
 
+// inventory functions
+
+void initSpecial (Inventory * inv);
+void addSpecial (Inventory * inv, char itemName[]);
+void displaySpecial (Inventory * inv);
+void menuChoice (Inventory * inv);
+
 // quit function
 
 char quit();
