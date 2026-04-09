@@ -219,24 +219,23 @@ int main()
     printf("==============");
     printf("\nChose option 1\n");
     //trigger outcome 1
-    int randNum = randGen(4);
+    int randNum = randGen(3);
     printf("%d",randNum);
     //param 4
     if(randNum == 1)
       {
       printf("Triggered outcome 1\n");
+      printf("Ur too fat, you fall. take damage and climb back up the other side\n");
       }
     else if(randNum==2)
       {
       printf("Triggered outcome 2\n");
+      printf("Your atheltic prowess overcomes adversity as you effortlessly leap across the chasm!!\n");
       }
     else if(randNum == 3)
       {
        printf("Triggered outcome 3\n");
-      }
-    else if(randNum == 4)
-      {
-       printf("Triggered outcome 4\n");
+       printf("Calmly, you walk across the chasm. For no particualr reason, you do not fall, completely ignoring the fact that theres a 50m foot chasm beneath you.\n");
       }
     printf("==============\n");
     }
@@ -253,22 +252,29 @@ int main()
     if(randNum == 1)
       {
       printf("Triggered outcome 1\n");
+      printf("You miss, the item you threw glides off course and lands into the chasm, never to be seen again. You just decide it's easier to climb across\n");
       }
     else if(randNum==2)
       {
       printf("Triggered outcome 2\n");
+      printf("You HIT! you idiot! the stalactite comes free from the cieling and lands on you! Somehow, it rolls off and forms a bridge.\n");
       }
     else if(randNum == 3)
       {
        printf("Triggered outcome 3\n");
+       printf("You HIT! and the stalactite explodes, a grilled cheese comes out of its core, you pick it up and eat it, gaining such energy that you can vault across the chasm!\n");
       }
     else if(randNum == 4)
       {
        printf("Triggered outcome 4\n");
+       printf("You HIT! the stalactite is now pissed and is going to mug you, starting a fight with you.\n");
+       //fight
+       printf("You win! you pick up the stalactite and drop it over the chasm, using it as a bridge.\n");
       }
     else if(randNum == 5)
       {
        printf("Triggered outcome 5\n");
+       printf("You HIT! against all logic and reasoning the stalactite comes free from the cieling, doing a triple backflip and landing perfectly along the chasm, replacing the bridge, you may cross.\n");
       }
        printf("=============\n");
     }
@@ -288,14 +294,18 @@ int main()
     if(randNum == 1)
       {
       printf("Triggered outcome 1\n");
+      printf(" As you cross into the chasm. the rope snaps! you fall down and take some damage and climb back out the other side\n");
       }
     else if(randNum==2)
       {
       printf("Triggered outcome 2\n");
+      printf("You reach the bottom of the chasm safely, at the bottomn you find some coins buried in the stream. You climb back out the other side\n");
+      //add 8 money
       }
     else if(randNum == 3)
       {
        printf("Triggered outcome 3\n");
+       printf("using a known physics exploit, you clip into the pole while holding the rope, this causes you to fling into the cieling from where you climb across the chasm from the opposite face of the cieling.\n");
         printf("==============\n");
       }
     }
@@ -327,10 +337,12 @@ int main()
    
   //Start Encounter 2
   printf("========================================\n");
-  printf("Goblins Mug you, what do to?\n");
+ // printf("Goblins Mug you, what do to?\n");
+  printf(" A squad of 4 goblins brandish crude daggers at you, demanding your liver! What are you to do??\n");
   printf("1. Mug them back!\n");
   printf("2. Play Uno\n");
   printf("3. Vanish from existance\n");
+  printf("4. Give in and give up\n");
   
   printf("What is your selection: ");
   scanf("%d",&playerSelect);
@@ -351,14 +363,20 @@ int main()
     if(randNum == 1)
       {
       printf("Triggered outcome 1\n");
+      printf("the goblins are done with your games, they collectively jump you.\n");
+      //start fight
       }
     else if(randNum==2)
       {
       printf("Triggered outcome 2\n");
+      printf("You stand as tall as you can go and approach the goblins, they shriek in disbelief of your aura, dropping their belongings and fleeing. You pick up their dropped belongings\n");
+      //health += 5, money += 15
       }
     else if(randNum == 3)
       {
        printf("Triggered outcome 3\n");
+       printf("Well, the goblins are mugging you and you are mugging the goblins, might as well just duke it out now, fight!\n");
+       //start fight
       }
       printf("==============\n");
       
@@ -377,14 +395,18 @@ int main()
     if(randNum == 1)
       {
       printf("Triggered outcome 1\n");
+      printf("After playing a draw 4, one of the goblins angrily grabs and flings the table forwards! The goblins respond in kind by jumping you\n");
       }
     else if(randNum==2)
       {
       printf("Triggered outcome 2\n");
+      printf("You win! being sore losers, the goblins decide to collectively jump you anyway. Get ready for a fight\n");
       }
+      
     else if(randNum == 3)
       {
        printf("Triggered outcome 3\n");
+       printf("You lose! the goblins planned an ultimate combo that resulted in you drawing 50 cards!!! Laughing and rolling on the floor, you notice the perfect opportunity to sneak past.\n");
       }
       
       printf("=============\n");
@@ -406,26 +428,43 @@ int main()
     if(randNum == 1)
       {
       printf("Triggered outcome 1\n");
+      printf("You hold two fingers up to your chest and fade away, flabbergasted, the goblins shriek in shock as you vanish out of existence and away from their trap. You reappear in the next room\n");
       }
     else if(randNum==2)
       {
       printf("Triggered outcome 2\n");
+      printf("You hold two fingers up to your chest, nothing happens. albeit a little confused, the goblins collectively jump you all at once\n");
+      //start fight
       }
     else if(randNum == 3)
       {
        printf("Triggered outcome 3\n");
+       printf("You hold two fingers up to your chest and fade out of existence. Unfortunately, so do the goblins, you both reappear in a different room, and theyre back to mugging you.\n");
+       //start fight
+      }  
+   
+    }
+
+  else if (playerSelect ==4)
+    {
+    printf("Triggered outcome 1\n");
+    printf("You relent, giving the goblins your liver, maybe they can make better use of it than you. One of the goblins happily shouts: WE CAN PAY FOR MOMS CANCER TREAMENT NOW! before leaving you alone.\n");
+    //take 50 damage  
+   
+    }  
+  
+
+
+
+  else
+      {
+      printf("wtf you hust hit yourself in the face\n");
+      confusion(); //punich misinput
       }
       printf("==============\n");
-    }
     
-       
-  else
-    {
-    printf("wtf you hust hit yourself in the face\n");
-    confusion(); //punich misinput
-    printf("==============\n");
-    }
-  
+    
+
 
   
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -456,16 +495,14 @@ int main()
     if(randNum == 1)
       {
       printf("Triggered outcome 1\n");
+      printf("Jumping onto the bonfire, you panic as you lose all sense of motor control as your pants ignite, unknowingly, you bolt across the room, miraculously unharmed.\n");
       }
     else if(randNum==2)
       {
       printf("Triggered outcome 2\n");
+      printf("How are you expecting a different result than is common sense? You ignite into a ball of fire and turn into a pile of crisp ashes :(\n");
+
       }
-    else if(randNum == 3)
-      {
-       printf("Triggered outcome 3\n");
-      }
-      printf("==============\n");
       
 
     }
@@ -481,14 +518,17 @@ int main()
     if(randNum == 1)
       {
       printf("Triggered outcome 1\n");
+      printf("You try to grab the swinging axe as it comes down, you catch it, causing it to become dislodged from its handle, you then swing it into its gearbox, jamming the system to a standstil.\n");
       }
     else if(randNum==2)
       {
       printf("Triggered outcome 2\n");
+      printf("You poilitely remind the axes that they need your consent to kill you, they instantly slow to a stop.\n");
       }
     else if(randNum == 3)
       {
        printf("Triggered outcome 3\n");
+       printf("You try to jam a nearby rock into one of the slits in which the axes pop out from, it doesnt work, the system overloads and explodes as youre blanketed in shrapnel and splinters, taking damage.\n");
       }
       
       printf("=============\n");
@@ -505,14 +545,19 @@ int main()
     if(randNum == 1)
       {
       printf("Triggered outcome 1\n");
+      printf("The axes have no trouble catching a middle aged fat man slowly running across the hall with their arms stretched out behind them. One of the axes slams directly into you and knocks you into the wall.\n");
+      //(Health -= 10)
       }
     else if(randNum==2)
       {
       printf("Triggered outcome 2\n");
+      printf("You wind up your sprint in the Naruto position, and in the blink of an eye, you start at the beginning of the corridor and then post blink find yourself at the end of it, only issue is that you completely overshot, running into the door at lightspeed. Taking lots of damage from the blunt force\n");
+      //health -= 35)
       }
     else if(randNum == 3)
       {
        printf("Triggered outcome 3\n");
+       printf("You trip on your face, faceplanting into the hard rock floor\n");
       }
       printf("==============\n");
     }
@@ -547,6 +592,8 @@ int main()
     {
     printf("==============");
     printf("\nChose option 1\n");
+    printf("\nYou purchased 10 health\n");
+    //(money -$5)
     //trigger outcome 1
     int randNum = randGen(1);
     printf("%d",randNum);
@@ -564,6 +611,8 @@ int main()
     {
     printf("==============");
     printf("\nChose option 2\n");
+    printf("\nYou purchase $20\n");
+    //(Money -$10)
     //trigger outcome 2
     int randNum = randGen(1);
     printf("%d",randNum);
@@ -579,6 +628,8 @@ int main()
     {
     printf("==============");
     printf("\nChose option 3\n");
+    printf("You decide to try and show the shopkeeper your (100%) discount coupon, he isn't having it. He gives you the gaze of death.\nTake Take 2,147,483,647 damage!\n");
+    //(health -= 100)
     int randNum = randGen(1);
     printf("%d",randNum);
   
