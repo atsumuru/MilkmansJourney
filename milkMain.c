@@ -35,22 +35,24 @@ int routeCheck(int list[4])
 }
 
 
-void onlyRock() 
-{ 
-	printf("While on your way out of the house you feel something heavy in your pocket. You reach into your pocket and find" 
-					" a random rock just sitting there.\n\n[Annoying Rock] has been added to inventory.\n\n"); 
-	//After inventory is settled, add the rock into array
-	rock = 0; 
-}
 
 
-int main() 
+
+void main() 
 {						   // hp money
-  Player stats = {20, 100};
+  Player stats = {20, 100}; 
+	
+	Inventory invent; 
+	void initSpecial(&invent);
+	
+	 
+
   srand(time(NULL); //to randomly select routes, I'd advise you use seperate one to select the scenes in your route
-  int *health = &stats.hp;
-  int *money = &stats.money; 
-	int rock = 1;
+
+  int *health = &stats.hp; //place these within the arguments of your main route function
+  int *money = &stats.money; // <---
+
+	
 	
 	printf("One day, you wake up to find that all your milk was gone. You groan as you head off to the store to get "
           "more. While watching a random video your friend sent you, you walk into the street, not realizing the light\n"
@@ -59,7 +61,7 @@ int main()
           "How did you survive? Are you dead!?!\nWho are you kidding, you don't care. All you know is that you still "
           "need to get milk. You throw yourself out of bed and begin your journey to the store to get a jug of milk.\n\n"); 
 	
-	printf("You start with 20 Hp and 100 dollars in your wallet as you leave your house./n/n"); 
+	 
 
 	int selection_list[4] = {1, 1, 1, 1}; 
 	int random_select; 
@@ -68,18 +70,16 @@ int main()
 	int restart = 0;
 
 
-	while(quit != y) 
-	{ 
-		if(rock > 0) 
-		{ 
-			onlyRock(); 
-		} 
-
+	while(quit != y || *health < 1 || *money < 1); 
+	{  
+		
 	  printf("You start with 20 Hp and 100 dollars in your wallet as you leave your house./n/n"); 
 		
 		if(restart > 0) 
 		{ 	
-			printf("You can still feel the stuff you gathered still in your pocket.\n\n");
+			printf("You can still feel the stuff you gathered still in your pocket.\n\n"); 
+			*health = 20; 
+			*money = 100;
 		} 
 		else 
 		{ 
@@ -119,14 +119,37 @@ int main()
           quit = quit();
           list_full = routeCheck(selction_list);
         }
-			}
-		} 
-		routeReset(selection_list); 
-		//Write two function; one that checks to see if all special items slots are full, and another to see if the rock's in the main invent 
-		//If statements here to initialize secret ending or loop again 
+			} 
+      if(*health < 1 || *money < 1)
+		  {
+		  	break;
+		  }
+		}  
+		routeReset(selection_list); 		 
 		printf("After a daring journey, you finally make it to the store... only to find that it's closed. You then spot a lone cartoon of milk"
           " sitting by the door. A tear comes to your eye as you think that this was a higher being's blessing for\nyour troubles. "
           "You pick up the milk, but upon closer inspection, you realize that it was soy milk. A look of utter disdain forms on"
           " your face as you drop the milk and walk out into the street. You spread yours arms and fall into\nthe path of an incoming truck."
           "\n\nYou wake up back in your house and you begrudgingly roll out bed, ready to do all of that again.\n\nHere we go again...\n");
+	} 
+	
+	if(quit == 'n')
+	{
+		printf("You decide that all of this isn't worth the milk.\n\nYou walk back home and live out the rest of your life, milkless.\n\n"
+					"You got the [Neutral Ending]!\n");
 	}
+	else if(*health == -125)
+	{
+		printf("You feel your extremites start to shake as you fall over and start foaming at the mouth.\n\n"
+					"You got the [Rabies Ending]!\n");
+	}
+	else if(*money == -150)
+	{
+		printf("You take the child under your care and become their surrogate parent.\n\n"
+					"You got the [Parent Ending]!\n");
+	}
+	
+	
+	
+	
+}
