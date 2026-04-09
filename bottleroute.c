@@ -27,7 +27,7 @@
 
 int randGen(int param)
   {
-  printf("Debug.randNum: ");
+  //printf("Debug.randNum: ");
   srand(time(NULL));
   int randNum;
   
@@ -156,7 +156,7 @@ int confusion()  //triggers upon invalid player input
 int main()
 {
   int param = 1;
-  printf("Debugging/ ");
+  //printf("Debugging/ ");
   int randNum =randGen(param);
 
   
@@ -190,9 +190,12 @@ int main()
   
   char playerSelect = 0;
   
+  printf("You wake up on the floor in a forest clearing, overshadowed by the size of a large door right in front of you. Pulling yourself back onto your feet, and feel enticed about the door and what riches could lie behind it. Pressing your weight against the door, you eventually feel the old, rusted door part from its hinges after spending who knows how long there. Entering a large cave opening, you spot your first challenge.
+  
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //Start Encounter 1
   printf("========================================\n");
+  printf("Entering the dungeon you notice the walls stretch outwards, into a large open room; appearing rudimentary in construction, the floor is bare stone and the cieling is rough and adorned with sharp spikes. These spikes precariously protrude downards, threatening to impale any would be passerbies. You hear the sound of flowing water as a fountain on your side of the room empties an endless stream of water into a large, noticable chasm; blocking your progress.\n");
   printf("A chasm stands before you, what to do?\n");
   printf("1. Jump Across the Chasm\n");
   printf("2. Throw something at the cieling\n");
@@ -338,7 +341,8 @@ int main()
   //Start Encounter 2
   printf("========================================\n");
  // printf("Goblins Mug you, what do to?\n");
-  printf(" A squad of 4 goblins brandish crude daggers at you, demanding your liver! What are you to do??\n");
+  printf("brushing yourself off from the dusty room you just left, you find yourself walk into a series of basic hallways, laid with cheap stone bricks and unimpressive wood floors. As you make your way through the path, you notice movement off in the distance. Only to get caught off guard by a squad of 4 goblins, the size of a small child, approach you, brandishing crude bronze daggers at you. One of the goblins points their dagger at your chest, and demands you relinquish your liver!\n");
+  printf(" Goblins mug you, demanding your liver! What are you to do??\n");
   printf("1. Mug them back!\n");
   printf("2. Play Uno\n");
   printf("3. Vanish from existance\n");
@@ -471,6 +475,7 @@ int main()
     
   //start encounter 3
   printf("========================================\n");
+  printf("Still recovering from the bizarre encounter, you reach the next door. While it conceals the next room, you can make out the recognizable sound of videogame traps from beyond the room. Only to have your assumptions confirmed as the next room leads into a narrow corridor lines with slits in which autonomous axes swing across the room. It may be dangerous, but at least you can take all the time you need to progress from here.\n");
   printf("A trap stands in your way, what do to?\n");
   printf("1. Immolate yourself!\n");
   printf("2. Disarm the traps\n");
@@ -574,7 +579,8 @@ int main()
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
       //start encounter 4
   printf("========================================\n");
-  printf("You find a convenient little shop, what do to?\n");
+  printf("Exhausted and nearly out of constitution, you reach a small room. It stands as the only welcoming area within the dungeon, and another man has set up a small supplies shop here. 'isnt running a business at the back iof a dungeon a terrible choice for business?' you ask the man. He turns you to to give the response: 'youre going to need all the supplies you can get if you wish to survive the horrible, indescribable monster that sleeps within the next chamber!' You feel a flooding sense of dread as you soon realize there might not be any chance of turning back now, you either fight the monster ahead or die trying\n");
+  printf("You find a convenient little shop, what to do?\n");
   printf("1. Buy health\n");
   printf("2. Buy money\n");
   printf("3. Rob the seller\n");
@@ -613,6 +619,7 @@ int main()
     printf("\nChose option 2\n");
     printf("\nYou purchase $20\n");
     //(Money -$10)
+    //(Money +$20)
     //trigger outcome 2
     int randNum = randGen(1);
     printf("%d",randNum);
@@ -648,5 +655,50 @@ int main()
     printf("==============\n");
     }
     
+    ///////////////////////////////////////////////////////////////////////////////////////////////
+    //start encounter 5
     
+    printf("========================================\n");
+    printf("Slowly and quietly creeping into the next room, you find a monster of indescribable nature lurking within the chamber center. It cannot ever simply be put into words just how horrifying this thing is, so just use your imagination\n");
+    printf("This is it, the big baddie, they must be guarding whatever treasure is sure to be found in this dungeon. How should you open up this fight?\n");
+    printf("1. Cry for Mommy\n");
+    printf("2. Explode\n");
+    printf("3. Stand there (Menacingly)\n");
+  
+    
+    printf("What is your selection: ");
+    scanf("%d",&playerSelect);
+    printf("You selected %d", playerSelect);
+    printf("\n");
+    printf("========================================\n");
+    
+    if(playerSelect==1)
+      {
+      printf("You fall back, sitting on your butt while sobbing profuseley, the big baddie gets so annoyed that they break the silence just to attack you.\n");
+      //start fight
+      }
+    
+    else if(playerSelect==2)
+      {
+      printf("You explode, causing a chain reaction that results in the big baddie exploding too. Congratulations! You defeated the big baddie! But you also defeated yourself :/\n");
+      //take 100 damage
+      }
+    
+    else if(playerSelect==3)
+      {
+      printf("You farm aura by standing in place, idle. The sheer awesomeness causes a powerful radiance to shoot out of your stance, melting the big baddie into a pile of goop.\n");
+      }
+      
+    else
+      {
+      printf("wtf you hust hit yourself in the face\n");
+      confusion(); //punich misinput
+      printf("==============\n");
+      }
+    
+                                            //Transcribe option to summary
+                                            
+                                            
+    //The ending
+    printf("Congratulate yourself and pat yourself on the back because you have done it, you have overcome all of the trials within the dungeon. Now it is time for your reward. You skip up to the treasure room door, and with a joyful gesture, you place your hand on the ring shaped handle and push it open, causing the massive 10 foot ornate door to creak open. The room inside is dim, enticing you to walk in. Only to find the door slam and lock behind you as the walls warp into some new, unforseeable form. You can only brace yourself for what is to come next...
 }
