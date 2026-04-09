@@ -11,20 +11,7 @@
 # include <stdlib.h>
 # include <time.h>
 
-# include "creamCrop.h"
-
-# define MAX_SPECIAL 5
-# define SIZE 50
-
-# define STEPS 4
-
-// colors
-
-# define RESET "\e[0m"
-# define YEL "\e[1;33m"
-# define BLU "\e[1;34m"
-# define RED "\e[1;31m"
-# define GRN "\e[0;32m"
+# include "umbrella.h"
 
 // scene one
 
