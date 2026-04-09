@@ -5,7 +5,7 @@
 
 
 
-void sceneOne(int *h, int *m) 
+void sceneOne(int *h, int *m, FILE* f) 
 {
 	printf("You walk up some stalls that look like they were made by a groups of 10 year olds when you hear a commotion up ahead. You turn "
 				"the corner to see two stallowners arguing in the middle of the pathway. Their endless back and forth is taking up the whole "
@@ -228,7 +228,7 @@ void sceneTwo(int *h, int *m)
 } 
 
 
-void sceneThree(int *h, int *m)
+void sceneThree(int *h, int *m, FILE* f)
 {
 	printf("After looking around for awhile, you come up to a more 'professional' stall surrounded by goats?? You walk up it "
 				"and a guy carrying bottles of goat's milk comes from behind the stall.\nHe look up at you in surprise, "
@@ -247,7 +247,7 @@ void sceneThree(int *h, int *m)
 	char junk;
 	while(c == 0) 
 	{
-		printf("\n\e[1;33m'Take a look.' \e[1;34m\n1) Old Bandage \n2) Goat Yogurt \n3) Nothing \e[0m\n");
+		printf("\n\e[1;33m'Take a look.' \e[1;34m\n1) Old Bandage \n2) Goat Yogurt \n3) Nothing \e[0m\n> ");
 		scanf("%d", &c); 
 		while(c != 1 && c != 2 && c != 3) 
 		{
@@ -283,7 +283,7 @@ void sceneThree(int *h, int *m)
   fprintf(f, "\e[0mYou leave the stallowner, the goat smell giving you a headache.\n");
 } 
 
-void sceneFour(int *h, int *m, Inventory *inv)
+void sceneFour(int *h, int *m, Inventory *inv, FILE* f)
 { 
 	int c; 
 	char junk;
@@ -309,13 +309,13 @@ void sceneFour(int *h, int *m, Inventory *inv)
 		{
 			printf("\e[1;34mYou decide to help the old man.\e[0m\nYou run up and scare away the dog and help the old man steady himself."
 						"\nHe turns to you and gives a warm smile. \e[1;33m'Why, thank you, kind stranger. I know it's not much, but here.'\e[0m"
-						" He hands you a perfectly wrapped grill cheese sandwich, still warm to the touch. He then shambles off down the path."
+						" He hands you a perfectly wrapped grill cheese sandwich, still warm to the touch. He then shambles\noff down the path."
 						"\nYou feel a warmness fill you up from the interaction and you decide to hold onto the sandwich. Forntunately, "
 						"you know better than to eat something given to you by a random stranger, so you you just shove it in your pocket "
 						"and continue on.\n"); 
       fprintf(f, "\e[1;34mYou decide to help the old man.\e[0m\nYou run up and scare away the dog and help the old man steady himself."
 						"\nHe turns to you and gives a warm smile. \e[1;33m'Why, thank you, kind stranger. I know it's not much, but here.'\e[0m"
-						" He hands you a perfectly wrapped grill cheese sandwich, still warm to the touch. He then shambles off down the path."
+						" He hands you a perfectly wrapped grill cheese sandwich, still warm to the touch. He then shambles\noff down the path."
 						"\nYou feel a warmness fill you up from the interaction and you decide to hold onto the sandwich. Forntunately, "
 						"you know better than to eat something given to you by a random stranger, so you you just shove it in your pocket "
 						"and continue on.\n");
@@ -331,7 +331,7 @@ void sceneFour(int *h, int *m, Inventory *inv)
 	}
 } 
 
-void sceneFive(int *h, int *m) 
+void sceneFive(int *h, int *m, FILE* f) 
 {
 	printf("You stare confused at a sign for a stall, unable to discern the gibberish scrawled across it. As you puzzle it over "
 				"in your mind, you feel something small slip into your pocket and grab your wallet. You spin around and see a little\n"
@@ -451,7 +451,7 @@ void grilledRoute(int *health, int *money, Inventory *inv) //Include the invento
 			{
 				if(scene_select == 1) 
 				{ 
-					sceneOne(&health_change, &money_change);  
+					sceneOne(&health_change, &money_change, f);  
 					scene_list[scene_select - 1] = 0; 
 					*health += health_change; 
 
@@ -477,7 +477,7 @@ void grilledRoute(int *health, int *money, Inventory *inv) //Include the invento
 				} 
 				else if(scene_select == 2) 
 				{ 
-					sceneTwo(&health_change, &money_change);
+					sceneTwo(&health_change, &money_change, f);
           scene_list[scene_select - 1] = 0;
           *health += health_change;
 					if(*health < 0) 
@@ -506,7 +506,7 @@ void grilledRoute(int *health, int *money, Inventory *inv) //Include the invento
 				} 
         else if(scene_select == 3)
         {
-          sceneThree(&health_change, &money_change, inv);
+          sceneThree(&health_change, &money_change, inv, f);
           scene_list[scene_select - 1] = 0;
           *health += health_change;
 
@@ -532,7 +532,7 @@ void grilledRoute(int *health, int *money, Inventory *inv) //Include the invento
         }
         else if(scene_select == 4)
         {
-          sceneFour(&health_change, &money_change, );
+          sceneFour(&health_change, &money_change, f);
           scene_list[scene_select - 1] = 0;
           *health += health_change;
 
@@ -557,7 +557,7 @@ void grilledRoute(int *health, int *money, Inventory *inv) //Include the invento
 				} 
 				else if(scene_select == 5) 
 				{ 
-					sceneFive(&health_change, &money_change);
+					sceneFive(&health_change, &money_change, f);
           scene_list[scene_select - 1] = 0;
           *health += health_change;
 					if(money_change == -150) 
@@ -589,8 +589,10 @@ void grilledRoute(int *health, int *money, Inventory *inv) //Include the invento
 
 			}
 
-		}
-
+		} 
+   
+    break;
+    
 	}
   
   fclose(f);
