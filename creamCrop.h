@@ -28,7 +28,7 @@ typedef struct
 
 // quit function
 
-void quit(void);
+char quit();
 
 // routes
 
