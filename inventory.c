@@ -13,20 +13,6 @@
 
 # include "creamCrop.h"
 
-// struct for special inv
-
-typedef struct
-{
-  char items[MAX_SPECIAL][SIZE];
-  int count;
-  
-  int EB;
-  int GC;
-  int UM;
-  int RC;
-  
-} Inventory;
-
 // initialize special inv
 
 void initSpecial(Inventory * inv)
