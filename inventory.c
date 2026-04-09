@@ -4,6 +4,7 @@
 *Purpose: This program allows the player to access the inventory.
 *Version: 1.0 April 1, 2026
 *         1.1 April 6, 2026
+*         1.2 April 9, 2026
 *
 ********************************************************/
 
@@ -13,7 +14,6 @@
 # include "creamCrop.h"
 
 # define MAX_SPECIAL 5
-# define MAX_SECRET 4
 # define SIZE 50
 
 // struct for special inv
@@ -28,28 +28,11 @@ typedef struct
   int UM;
   int RC;
   
-} SpecialInventory;
-
-// initialize player stats
-
-void initPlayer(Player * p)
-{
-  p -> hp = 100;
-  p -> money = 20;
-}
-
-// display player stats
-
-void displayStats(Player * p)
-{
-  printf("\n --- [PLAYER STATS] --- \n");
-  printf("HP: %d\n", p -> hp);
-  printf("Money: %d\n", p -> money);
-}
+} Inventory;
 
 // initialize special inv
 
-void initSpecial(SpecialInventory * inv)
+void initSpecial(Inventory * inv)
 {
   int i;
 
@@ -67,7 +50,7 @@ void initSpecial(SpecialInventory * inv)
 
 // add special items
 
-void addSpecial(SpecialInventory * inv, char itemName[])
+void addSpecial(Inventory * inv, char itemName[])
 {
   if (inv -> count < MAX_SPECIAL)
   {
@@ -104,7 +87,7 @@ void addSpecial(SpecialInventory * inv, char itemName[])
 
 // display special inv
 
-void displaySpecial(SpecialInventory * inv)
+void displaySpecial(Inventory * inv)
 {
   int i;
 
@@ -115,23 +98,15 @@ void displaySpecial(SpecialInventory * inv)
   }
 }
 
-// main
-
-int main () {
-  Player player;
-  SpecialInventory special;
-  
+void menuChoice (Inventory * inv)
+{
   int choice = 0;
   
-  initPlayer(&player);
-  initSpecial(&special);
-  
-  while (choice != 4)
+  while (choice != 2)
   {
     printf("\n --- MENU --- \n");
-    printf("1. View [PLAYER STATS]\n");
-    printf("2. View Inventory\n");
-    printf("3. Back to Game\n");
+    printf("1. View Inventory\n");
+    printf("2. Continue On\n");
     printf("\n");
     
     printf("Choose option: ");
@@ -140,14 +115,10 @@ int main () {
     switch (choice)
     {
       case 1:
-        displayStats(&player);
+        displaySpecial(inv);
         break;
       
       case 2:
-        displaySpecial(&special);
-        break;
-      
-      case 3:
         // back to game
         break;
         
@@ -156,6 +127,4 @@ int main () {
         break;
     }
   }
-
-  return 0;
 }
