@@ -4,7 +4,7 @@
 *Purpose: This program allows the player to access the inventory.
 *Version: 1.0 April 1, 2026
 *         1.1 April 6, 2026
-*         1.2 April 9, 2026
+*         1.2 April 8, 2026
 *
 ********************************************************/
 
@@ -12,9 +12,6 @@
 # include <string.h>
 
 # include "creamCrop.h"
-
-# define MAX_SPECIAL 5
-# define SIZE 50
 
 // struct for special inv
 
