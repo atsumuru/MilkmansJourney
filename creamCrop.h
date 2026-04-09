@@ -11,6 +11,9 @@ typedef struct
 
 // secret inventory struct
 
+# define MAX_SPECIAL 5
+# define SIZE 50
+
 typedef struct
 {
   char items[MAX_SPECIAL][SIZE];
@@ -21,11 +24,11 @@ typedef struct
   int UM;
   int RC;
   
-} SpecialInventory;
+} Inventory;
 
 // quit function
 
-char quit();
+void quit(void);
 
 // routes
 
