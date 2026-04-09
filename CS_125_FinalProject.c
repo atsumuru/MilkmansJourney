@@ -27,17 +27,17 @@
 
 int randGen(int param)
   {
-  printf("this is running\n");
+  printf("Debug.randNum: ");
   srand(time(NULL));
   int randNum;
   
-  randNum = rand()%param+1;
+  randNum = rand()%param +1;
   
   
 
-  int num = 0;
-  num = rand()%param+1;
-  printf("%d\n",num);
+  //int num = 0;
+  //num = rand()%param+1;
+  printf("%d\n",randNum);
 
   
   return randNum;
@@ -51,13 +51,6 @@ int confusion()  //triggers upon invalid player input
   //Damage - 5
   
   return 0;
-  }
-  
-void E1O1()
-  {
-  
-  
-
   }
   
   
@@ -162,47 +155,447 @@ void E1O1()
 
 int main()
 {
+  int param = 1;
+  printf("Debugging/ ");
+  int randNum =randGen(param);
+
+  
+// randGen(2);
+//  randGen(2);
+
+
 /*
-	printf("this is running\n");
-  srand(time(NULL));
-  int num = 0;
-  num = rand()%10+1;
-  printf("%d",num);
-  return 0;
+
+  int x =0;
+    
+  for(x=0;x<10;x++)
+    {
+    int randNum =randGen(param);
+    if(randNum == 1)
+      {
+      printf("Number triggered\n");
+      }
+  else
+      {
+      printf("error\n");
+      }
+      
+    }
+  
   */
   
-  randGen(100);
   
   //Debugging done
   
+  
   char playerSelect = 0;
   
-  
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //Start Encounter 1
+  printf("========================================\n");
+  printf("A chasm stands before you, what to do?\n");
+  printf("1. Jump Across the Chasm\n");
+  printf("2. Throw something at the cieling\n");
+  printf("3. Rapel using the rope\n");
   
-  printf("A chasm stands before you, what to do");
+  //triggers if player has secret item
+  /*
+  if(hasSecretitem)
+    {
+    printf("4. Use your umbrella\n");
+    }
+  */
+  
+  printf("What is your selection: ");
   scanf("%d",&playerSelect);
+  printf("You selected %d", playerSelect);
+  printf("\n");
+  printf("========================================\n");
+                                          //Transcribe option to summary
+  
   
   if(playerSelect ==1)
     {
+    printf("==============");
+    printf("\nChose option 1\n");
     //trigger outcome 1
-    //param 3
+    int randNum = randGen(4);
+    printf("%d",randNum);
+    //param 4
+    if(randNum == 1)
+      {
+      printf("Triggered outcome 1\n");
+      }
+    else if(randNum==2)
+      {
+      printf("Triggered outcome 2\n");
+      }
+    else if(randNum == 3)
+      {
+       printf("Triggered outcome 3\n");
+      }
+    else if(randNum == 4)
+      {
+       printf("Triggered outcome 4\n");
+      }
+    printf("==============\n");
     }
+    
+       
   else if (playerSelect ==2)
     {
+    printf("==============");
+    printf("\nChose option 2\n");
     //trigger outcome 2
-    }  
+    int randNum = randGen(5);
+    printf("%d",randNum);
+    //param 5
+    if(randNum == 1)
+      {
+      printf("Triggered outcome 1\n");
+      }
+    else if(randNum==2)
+      {
+      printf("Triggered outcome 2\n");
+      }
+    else if(randNum == 3)
+      {
+       printf("Triggered outcome 3\n");
+      }
+    else if(randNum == 4)
+      {
+       printf("Triggered outcome 4\n");
+      }
+    else if(randNum == 5)
+      {
+       printf("Triggered outcome 5\n");
+      }
+       printf("=============\n");
+    }
+   
+      
+    
+    
   else if (playerSelect ==3)
     {
     //trigger outcome 3
+    //param 3
+    printf("==============");
+    printf("\nChose option 3\n");
+    int randNum = randGen(3);
+    printf("%d",randNum);
+  
+    if(randNum == 1)
+      {
+      printf("Triggered outcome 1\n");
+      }
+    else if(randNum==2)
+      {
+      printf("Triggered outcome 2\n");
+      }
+    else if(randNum == 3)
+      {
+       printf("Triggered outcome 3\n");
+        printf("==============\n");
+      }
     }
+    
+    
+      /*
+  if(hasSecretitem)
+    {
+     if(playerSelect ==4)
+       {
+       printf("SECRET outcome\n");
+       (add bottle to inventory)
+       }
+    }
+  */
+       
   else
     {
-    confusion() //punich misinput
+    printf("wtf you hust hit yourself in the face\n");
+    confusion(); //punich misinput
+    printf("==============\n");
     }
   
   
   
   
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   
+   
+  //Start Encounter 2
+  printf("========================================\n");
+  printf("Goblins Mug you, what do to?\n");
+  printf("1. Mug them back!\n");
+  printf("2. Play Uno\n");
+  printf("3. Vanish from existance\n");
+  
+  printf("What is your selection: ");
+  scanf("%d",&playerSelect);
+  printf("You selected %d", playerSelect);
+  printf("\n");
+  printf("========================================\n");
+                                          //Transcribe option to summary
+  
+  
+  if(playerSelect ==1)
+    {
+    printf("==============");
+    printf("\nChose option 1\n");
+    //trigger outcome 1
+    int randNum = randGen(4);
+    printf("%d",randNum);
+    //param 4
+    if(randNum == 1)
+      {
+      printf("Triggered outcome 1\n");
+      }
+    else if(randNum==2)
+      {
+      printf("Triggered outcome 2\n");
+      }
+    else if(randNum == 3)
+      {
+       printf("Triggered outcome 3\n");
+      }
+      printf("==============\n");
+      
+
+    }
+    
+       
+  else if (playerSelect ==2)
+    {
+    printf("==============");
+    printf("\nChose option 2\n");
+    //trigger outcome 2
+    int randNum = randGen(5);
+    printf("%d",randNum);
+    //param 5
+    if(randNum == 1)
+      {
+      printf("Triggered outcome 1\n");
+      }
+    else if(randNum==2)
+      {
+      printf("Triggered outcome 2\n");
+      }
+    else if(randNum == 3)
+      {
+       printf("Triggered outcome 3\n");
+      }
+      
+      printf("=============\n");
+     
+    }
+   
+      
+    
+    
+  else if (playerSelect ==3)
+    {
+    //trigger outcome 3
+    //param 3
+    printf("==============");
+    printf("\nChose option 3\n");
+    int randNum = randGen(3);
+    printf("%d",randNum);
+  
+    if(randNum == 1)
+      {
+      printf("Triggered outcome 1\n");
+      }
+    else if(randNum==2)
+      {
+      printf("Triggered outcome 2\n");
+      }
+    else if(randNum == 3)
+      {
+       printf("Triggered outcome 3\n");
+      }
+      printf("==============\n");
+    }
+    
+       
+  else
+    {
+    printf("wtf you hust hit yourself in the face\n");
+    confusion(); //punich misinput
+    printf("==============\n");
+    }
+  
+
+  
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+  //start encounter 3
+  printf("========================================\n");
+  printf("A trap stands in your way, what do to?\n");
+  printf("1. Immolate yourself!\n");
+  printf("2. Disarm the traps\n");
+  printf("3. Run across\n");
+
+  
+  printf("What is your selection: ");
+  scanf("%d",&playerSelect);
+  printf("You selected %d", playerSelect);
+  printf("\n");
+  printf("========================================\n");
+                                          //Transcribe option to summary
+  
+  
+  if(playerSelect ==1)
+    {
+    printf("==============");
+    printf("\nChose option 1\n");
+    //trigger outcome 1
+    int randNum = randGen(2);
+    printf("%d",randNum);
+    if(randNum == 1)
+      {
+      printf("Triggered outcome 1\n");
+      }
+    else if(randNum==2)
+      {
+      printf("Triggered outcome 2\n");
+      }
+    else if(randNum == 3)
+      {
+       printf("Triggered outcome 3\n");
+      }
+      printf("==============\n");
+      
+
+    }
+    
+       
+  else if (playerSelect ==2)
+    {
+    printf("==============");
+    printf("\nChose option 2\n");
+    //trigger outcome 2
+    int randNum = randGen(3);
+    printf("%d",randNum);
+    if(randNum == 1)
+      {
+      printf("Triggered outcome 1\n");
+      }
+    else if(randNum==2)
+      {
+      printf("Triggered outcome 2\n");
+      }
+    else if(randNum == 3)
+      {
+       printf("Triggered outcome 3\n");
+      }
+      
+      printf("=============\n");
+     
+    }
+    
+      else if (playerSelect ==3)
+    {
+    printf("==============");
+    printf("\nChose option 3\n");
+    int randNum = randGen(3);
+    printf("%d",randNum);
+  
+    if(randNum == 1)
+      {
+      printf("Triggered outcome 1\n");
+      }
+    else if(randNum==2)
+      {
+      printf("Triggered outcome 2\n");
+      }
+    else if(randNum == 3)
+      {
+       printf("Triggered outcome 3\n");
+      }
+      printf("==============\n");
+    }
+    
+    
+    else
+    {
+    printf("wtf you hust hit yourself in the face\n");
+    confusion(); //punich misinput
+    printf("==============\n");
+    }
+    
+      
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      //start encounter 4
+  printf("========================================\n");
+  printf("You find a convenient little shop, what do to?\n");
+  printf("1. Buy health\n");
+  printf("2. Buy money\n");
+  printf("3. Rob the seller\n");
+
+  
+  printf("What is your selection: ");
+  scanf("%d",&playerSelect);
+  printf("You selected %d", playerSelect);
+  printf("\n");
+  printf("========================================\n");
+                                          //Transcribe option to summary
+  
+  
+  if(playerSelect ==1)
+    {
+    printf("==============");
+    printf("\nChose option 1\n");
+    //trigger outcome 1
+    int randNum = randGen(1);
+    printf("%d",randNum);
+    if(randNum == 1)
+      {
+      printf("Triggered outcome 1\n");
+      }
+      printf("==============\n");
+      
+
+    }
+    
+       
+  else if (playerSelect ==2)
+    {
+    printf("==============");
+    printf("\nChose option 2\n");
+    //trigger outcome 2
+    int randNum = randGen(1);
+    printf("%d",randNum);
+    if(randNum == 1)
+      {
+      printf("Triggered outcome 1\n");
+      }     
+      printf("=============\n");
+     
+    }
+    
+      else if (playerSelect ==3)
+    {
+    printf("==============");
+    printf("\nChose option 3\n");
+    int randNum = randGen(1);
+    printf("%d",randNum);
+  
+    if(randNum == 1)
+      {
+      printf("Triggered outcome 1\n");
+      }
+      printf("==============\n");
+    }
+    
+    
+    else
+    {
+    printf("wtf you hust hit yourself in the face\n");
+    confusion(); //punich misinput
+    printf("==============\n");
+    }
+    
+    
 }
