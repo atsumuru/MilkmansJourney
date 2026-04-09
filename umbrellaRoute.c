@@ -1,10 +1,30 @@
+/*******************************************************
+*File:	   umbrellaRoute.c
+*Author:   Payton Phillips
+*Purpose:  This program plays the mirror realm route, which contains four scenes and function to randomize them.
+*Version:  1.0 April 1, 2026
+*          1.1 April 9, 2026          
+*
+********************************************************/
+
 # include <stdio.h>
 # include <stdlib.h>
 # include <time.h>
 
 # include "creamCrop.h"
 
-# define SIZE 6
+# define MAX_SPECIAL 5
+# define SIZE 50
+
+# define STEPS 4
+
+// colors
+
+# define RESET "\e[0m"
+# define YEL "\e[1;33m"
+# define BLU "\e[1;34m"
+# define RED "\e[1;31m"
+# define GRN "\e[0;32m"
 
 // scene one
 
@@ -13,31 +33,42 @@ void sceneOne (int * hp, int * money)
   int i;
   int success = 0;
   
-  int correctPath[SIZE] = {1,3,2,2,3,1};
-  int playerPath[SIZE];
+  int correctPath[STEPS] = {1,3,2,1};
+  int playerPath[STEPS];
   
+  printf ("\n***"); // for testing purposes
   
   printf ("\n\nStumbling forward, you find MORE mirrors!\n");
   printf ("You let out a sigh of exasperation.\n");
   printf ("The milk jug appears again and you steel your resolve.\n\n");
-  printf ("For the milk!, you think as you take a deep breath and push forward.\n");
+  printf (YEL "For the milk!" RESET ", you think as you take a deep breath and push forward.\n");
 
-  printf ("\nPlease enter a direction: \n");
+  printf (BLU "\nPlease enter a direction: \n");
   printf ("1. Left\n");
   printf ("2. Right\n");
-  printf ("3. Forward\n");
+  printf ("3. Forward\n" RESET);
 
   while (success == 0)
   {
-    for (i = 0; i < SIZE; i++)
+      printf ("\n");
+  
+    for (i = 0; i < STEPS; i++)
     {
+    
       printf ("Step %d: ", i+1);
       scanf ("%d", &playerPath[i]);
+      
+      while(playerPath[i] != 1 && playerPath[i] != 2 && playerPath[i] != 3)
+      {
+        printf ("\nInvalid input. Please enter 1,2, or 3.\n");
+        printf ("Step %d: ", i+1);
+        scanf ("%d", &playerPath[i]);
+      }
     }
     
     success = 1;
     
-    for (i = 0; i < SIZE; i++)
+    for (i = 0; i < STEPS; i++)
     {
       if (playerPath[i] != correctPath[i])
       {
@@ -48,22 +79,22 @@ void sceneOne (int * hp, int * money)
     
     if (success == 1)
     {
-      printf ("You have successfully reached the milk jug!\n");
+      printf ("\nYou have successfully reached the milk jug!\n\n");
       printf ("But, suddenly, the milk jug turns into a puddle of milk!!\n");
       printf ("You fall to the ground in disbelief that the jug has escaped you,\n");
       printf ("and then you proceed to slip and fall through the puddle!\n");
       
-      printf ("\nYou lose 5 HP due to the shock,\n");
-      printf ("but you gain 10 money for correctly finishing the maze!");
+      printf ("\nYou " RED "lose 3 HP" RESET " due to the shock,\n");
+      printf ("but you " GRN " gain 10 money" RESET " for correctly finishing the maze!");
       
-      * hp -= 1;
+      * hp -= 3;
       * money += 10;
     }
     else
     {
-      printf ("You accidentally run face first into a mirror and get disoriented.\n");
-      printf ("You lose 1 HP.\n");
-      printf ("\nTry again! :)\n");
+      printf ("\nYou accidentally run face first into a mirror and get disoriented.\n");
+      printf ("You " RED "lose 1 HP." RESET"\n");
+      printf (YEL "\nTry again! :)\n" RESET);
       
       * hp -= 1;
     }
@@ -77,54 +108,58 @@ void sceneTwo (int * hp, int * money)
   int choice;
   int escape = 0;
   
+  printf ("\n\n***"); // for testing purposes
+  
   printf ("\n\nYou've landed in another room of mirrors.\n");
   printf ("You just sigh. Picking yourself back up.\n");
   
   printf ("\nAnd then you hear it.\n");
   
   printf ("\nThe rumble sound coming from behind you.\n");
-  printf ("You turn around to find a wave of milk heading straight for you.\n");
+  printf ("You turn around to find a" YEL" WAVE OF MILK" RESET" heading straight for you.\n");
   printf ("You quickly begin to run, with a single thought running through your head.\n");
   
-  printf ("\nIs the milk truely worth it?\n");
+  printf (YEL "\nIs the milk truely worth it?" RESET);
   
   while (escape == 0)
   {
-    printf ("\n\nChoose what to do: \n");
+    printf (BLU "\n\nChoose what to do: \n");
     printf ("1. Run straight forward.\n");
     printf ("2. Proceed with caution.\n");
     printf ("\t(please note, there is a giant wave behind you.)\n");
-    printf ("3. Smash a mirror to find a shortcut.\n");
+    printf ("3. Smash a mirror to find a shortcut.\n" RESET);
     
     printf ("You choose: ");
     scanf("%d", &choice);
     
     if (choice == 1)
     {
-      printf ("You sprint forward...\n");
+      printf ("\nYou sprint forward.\n");
       
       if (rand() % 2 == 0)
       {
         printf ("You crash into a mirror wall!\n");
-        printf ("You get cut and lose 5 HP.\n");
+        printf ("You get cut and " RED "lose 5 HP" RESET ".");
         
         * hp -= 5;
+        
+        printf (YEL "\nTry again! :)" RESET);
       }
       else
       {
-        printf ("You narrowly avoid a mirror collision.\n");
+        printf ("\nYou narrowly avoid a mirror collision.\n");
         printf ("\nYou push forward and spot a mirror doorway.\n");
         printf ("You run towards it, entirely aware of the wave getting closer and closer.\n");
-        printf ("You finally reach the door, open it, and slam it shut behind you.\n");
+        printf ("You finally reach the door, open it, and slam it shut behind you.\n\n");
         
         escape = 1;
       }
     }
     else if (choice == 2)
     {
-      printf ("You are too cautious and the milk wave crashes into you and pulls you under.\n");
-      printf ("You lose 10 HP.\n");
-      printf ("\nTry again! :)\n");
+      printf ("\nYou are too cautious and the milk wave crashes into you and pulls you under.\n");
+      printf ("You " RED "lose 10 HP" RESET".\n");
+      printf (YEL "\nTry again! :)" RESET);
       
       * hp -= 10;
     }
@@ -132,9 +167,9 @@ void sceneTwo (int * hp, int * money)
     {
       printf ("You purposefully slam yourself against one of the wall mirrors.\n\n");
       
-      printf ("You take some minor damage (lose 5 HP), but you successfully find a hidden passage and escape!\n");
+      printf ("You take some minor damage " RED "(lose 3 HP)" RESET ", but you successfully find a hidden passage and escape!\n\n");
       
-      * hp -= 5;
+      * hp -= 3;
       escape = 1;
     }
   }
@@ -145,6 +180,8 @@ void sceneTwo (int * hp, int * money)
 void sceneThree (int * hp, int * money, Inventory *inv)
 {
   int choice;
+  
+  printf ("***"); // for testing purposes
   
   printf ("\n\nYou open your eyes and find a cow in front of you.\n");
   printf ("You blink.\n");
@@ -162,24 +199,24 @@ void sceneThree (int * hp, int * money, Inventory *inv)
   printf ("\nThe cow finally starts moving along it's intended path.\n");
   
   printf ("You sit there in pure confusion for a bit until the thought occurs to you.\n");
-  printf ("Cow, milk. Cow must have milk.\n");
+  printf (YEL "Cow, milk. Cow must have milk.\n" RESET);
   printf ("So you make a decision.\n");
   
-  printf ("You choose: \n");
+  printf (BLU "\nYou choose: \n");
   printf ("1. Follow the cow\n");
-  printf ("2. Don't follow the cow.\n");
+  printf ("2. Don't follow the cow.\n" RESET);
   
   printf ("\nYou enter: ");
   scanf ("%d", &choice);
   
   if (choice == 1)
   {
-    printf ("You proceed to follow the cow.\n");
-    printf ("It takes you through several rooms before finally finding an open room,");
+    printf ("\nYou proceed to follow the cow.\n");
+    printf ("It takes you through several rooms before finally finding an open room,\n");
     printf ("made with only a limited numbers of mirrors.\n");
     
     printf ("The cow moos at you again to grab your attention.\n");
-    printf ("He gives you an Umbrella, 10 money, and you earn 15 HP.\n");
+    printf ("\nHe gives you an Umbrella, " GRN "10 money" RESET ", and you "GRN "earn 15 HP" RESET ".\n");
     printf ("(don't ask how. explaination: magic)\n\n");
     
     inv -> UM = 1;
@@ -192,7 +229,7 @@ void sceneThree (int * hp, int * money, Inventory *inv)
   }
   else
   {
-    printf ("You choose to ignore the cow.\n");
+    printf ("\nYou choose to ignore the cow.\n");
     printf ("Nothing major happens, and you continue forward.\n");
     printf ("You find a doorway and continue on.\n");
     printf ("You feel slightly disapointed.\n");
@@ -205,6 +242,9 @@ void sceneThree (int * hp, int * money, Inventory *inv)
 void sceneFour (int * hp, int * money, Inventory *inv)
 {
   int choice;
+  int success = 0;
+  
+  printf ("\n***"); // for testing purposes
 
   printf ("\n\nYou find yourself inside an empty room with a single mirror in front of you.\n");
   printf ("You look around at your surroundings, with caution.\n\n");
@@ -213,104 +253,126 @@ void sceneFour (int * hp, int * money, Inventory *inv)
   printf ("Inside the mirror.\n");
   printf ("You examine the mirror.\n");
   
-  printf ("\nYou sigh. You just want your jug of milk!\n");
-  
-  if (inv -> RC == 1)
+  printf ("\nYou sigh. " YEL "You just want your jug of milk!\n" RESET);
+
+while (success == 0)
   {
-    printf ("\nYou choose to: \n");
-    pritnf ("1. Bang on the mirror\n");
-    printf ("2. Break the mirror.\n");
+    printf (BLU"\nYou choose to: \n");
+    printf ("1. Bang on the mirror\n");
+    printf ("2. Break the mirror.\n" RESET);
     
     if (inv -> RC == 1)
     {
-    pritnf ("3. Throw the Rubber Chicken of Doom at the mirror.\n");
+    printf (BLU "3. Throw the " YEL "Rubber Chicken of Doom" RESET " at the mirror.\n" RESET);
     }
-    
+  
     printf ("\nYou enter: \n");
-    scanf ("%d", &choice)
+    scanf ("%d", &choice);
     
     if (choice == 1)
     {
-      printf ("\nYou bang on the mirror. The milk jug disappears.\n");
-      printf ("Try again! :)");
+      if (inv -> RC == 0)
+      {
+        printf ("\nYou tap the mirror, only to find it's a portal.\n");
+        printf ("You enter the mirror.\n");
+        
+        success = 1;
+      }
+      else
+      {
+        printf ("\nYou bang on the mirror. The milk jug disappears.\n");
+        printf (YEL "Try again! :)\n" RESET);
+      }
     }
     else if (choice == 2)
     {
       printf ("\nYou break the mirror but all that's left is broken glass on an empty frame.\n");
-      printf ("\nTry again! :)\n");
+      printf ("You " RED "lose 1 HP" RESET ".");
+      printf (YEL "\nTry again! :)\n" RESET);
+      
+      * hp -= 1;
     }
     else if (choice == 3 && inv -> RC == 1)
     {
-      printf ("\nYou throw the Rubber Chicken of Doom at the mirror. It goes into it.\n");
+      printf ("\nYou throw the " YEL "Rubber Chicken of Doom " RESET " at the mirror. It goes into it.\n");
       printf ("You blink.\n");
       printf ("You move through the portal.\n");
+      
+      success = 1;
     }
   }
-  else
-  {
-    printf ("\nYou choose to: \n");
-    pritnf ("1. Bang on the mirror\n");
-    pritnf ("2. Break the mirror.\n");
-
-    
-    printf ("\nYou enter: \n");
-    scanf ("%d", &choice)
-    
-    if (choice == 1)
-    {
-      printf ("\nYou bang on the mirror, only to find it's a portal.\n");
-      printf ("You fall through the portal.");
-    }
-    else (choice == 2)
-    {
-      printf ("\nYou break the mirror but all that's left is broken glass on an empty frame.\n");
-      printf ("\nTry again! :)\n");
-    }
-  }
-
 }
 
-
-void playRandomScene(int *hp, int *money, Inventory *inv)
+void playRandomScene (int * hp, int * money, Inventory * inv)
 {
-    int r = rand() % 4;
-
-    if (r == 0) sceneOne(hp, money);
-    else if (r == 1) sceneTwo(hp, money);
-    else if (r == 2) sceneThree(hp, money, inv);
-    else sceneFour(hp, money, inv);
+  int list[4] = {1,1,1,1};
+  int order[4] = {0,1,2,3};
+  
+  int r;
+  int remaining = 4;
+  
+  while ( * hp > 0 && remaining > 0)
+  {
+    r = rand() % 4;
+    
+    while (list[r] == 0)
+    {
+      r = rand() % 4;
+    }
+    
+    list[r] = 0;
+    remaining--;
+    
+    switch (r)
+    {
+      case 0:
+        sceneOne (hp, money);
+        break;
+  
+      case 1:
+        sceneTwo (hp, money);
+        break;
+        
+      case 2:
+        sceneThree (hp, money, inv);
+        break;
+        
+      case 3:
+        sceneFour (hp, money, inv);
+        break;
+    }
+    
+    if ( * hp <= 0)
+    {
+      printf ("\nYou have collapsed in the mirror realm.\n");
+    }
+  }
 }
 
 // main
 
-void umbrellaRoute (int *hp, int *money, Inventory *inv)
+int umbrellaRoute (int *hp, int *money, Inventory *inv)
 {
-  int quitting = 0;
-  char q;
+  int list [4] = {1,1,1,1};
 
-  printf ("You find yourself in a room full of mirrors, with no clue of how far they go.\n");
-  printf ("Suddenly, a milk jog appears, somewhere inside the room.\n");
-  printf ("You can see the image bouncy off each mirror, but you decide to venture forward.\n");
+  printf ("\nYou find yourself in a room full of mirrors, with no clue of how far they go.\n");
+  printf ("Suddenly, a milk jug appears, somewhere inside the room.\n");
+  printf ("You can see the image bouncing off each mirror, but you decide to venture forward.\n");
   printf ("Keeping one hand on the wall, you move deeper into the mirror room.\n");
-  printf ("You hit a corner and before you can continue forward, you get pulled mirror.");
+  printf ("You hit a corner and before you can continue forward, you get pulled into a mirror.\n");
   
-  printf ("\nYou have entered the MIRROR REALM.\n");
+  printf ("\nYou have entered the " YEL "MIRROR REALM.\n" RESET);
   
-  while (quitting != 0 && hp > 0)
+  playRandomScene (hp, money, inv);
+  
+  while (* hp > 0)
   {
     playRandomScene(hp, money, inv);
     
-    if (*hp <= 0)
+    if (quit())
     {
-      printf ("\nYou have collapsed in the mirror realm.\n");
-      break;
-    }
-    
-    q = quit();
-    
-    if (q == 'y')
-    {
-      quitting = 1;
+      printf ("Exiting.\n");
+      return 0;
     }
   }
   
