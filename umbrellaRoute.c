@@ -495,6 +495,4 @@ int umbrellaRoute(int *hp, int *money, Inventory *inv);
   }
   
   fclose(f); // close file
-  
-  return 0;
 }
