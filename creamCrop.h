@@ -1,7 +1,9 @@
 #ifndef HEADER_FILENAME
 #define HEADER_FILENAME 
 #include "grilledRoute.h" 
-#include "umbrellaRoute.h"
+#include "umbrellaRoute.h" 
+#include "chickenRoute.h"
+#include "bottleRoute.h"
 
 
 // player struct
