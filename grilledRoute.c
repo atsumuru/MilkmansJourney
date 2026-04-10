@@ -1,3 +1,14 @@
+/*****************************************************
+*
+*File: grilledRoute
+*Author: Esra Petty
+*Purpose: One piece of a milky adventure (Final Project
+*Version: 1.0 Apr 10, 2026
+*
+******************************************************/
+
+
+
 #include <stdio.h> 
 #include <stdlib.h> 
 #include <time.h>
