@@ -1,3 +1,10 @@
+/*
+File: chickenRoute.h
+Author: Fred Washington
+Purpose: Header file containing the functions from chickenRoute.c
+Ver 1.0078 Apr 11, 2026
+*/
+
 #ifndef HEADER_FILENAME
 #define HEADER_FILENAME
 
