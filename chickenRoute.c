@@ -1,3 +1,13 @@
+/*
+file: chickenRoute.c
+author: Fred Washington
+purpose: Contains one of the four routes for Milkman's Journey.
+		 Offers players minigames and chance to earn Rubber Chicken.
+		 Varying endings depending on criteria such as previous loops,
+		 user choice, possession of specific items, and random chance.
+Ver 1.092 Apr 11, 2026
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
