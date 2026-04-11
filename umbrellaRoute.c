@@ -14,6 +14,12 @@
 
 # include "creamCrop.h"
 # include "umbrellaRoute.h"
+# define STEPS 4 
+# define RESET "\e[0m"
+# define YEL "\e[1;33m"
+# define BLU "\e[1;34m"
+# define RED "\e[1;31m"
+# define GRN "\e[0;32m"
 
 // scene one
 
@@ -119,7 +125,7 @@ void sceneOne (int * hp, int * money, FILE *f)
 
 // scene two
 
-void sceneTwo (int * hp, int * money, FILE *f)
+void sceneTwo (int * hp, FILE *f)
 {
   int choice;
   int escape = 0;
@@ -346,12 +352,12 @@ void sceneThree (int * hp, int * money, Inventory *inv, FILE *f)
 
 // scene four
 
-void sceneFour (int * hp, int * money, Inventory * inv, FILE *f)
+void sceneFour (int * hp, Inventory * inv, FILE *f) //put in fprintfs
 {
   int choice;
   int success = 0;
   
-  printf ("\n\n***"); // for testing purposes
+  printf ("\n\n***"); 
 
   printf ("\n\nYou find yourself inside an empty room with a single mirror in front of you.\n");
   printf ("You look around at your surroundings, with caution.\n\n");
@@ -418,7 +424,7 @@ void playScenes (int * hp, int * money, Inventory * inv, FILE *f)
     }
   if (* hp > 0)
     {
-      sceneTwo (hp, money, f);
+      sceneTwo (hp, f);
     }
   if (* hp > 0)
     {
@@ -426,7 +432,7 @@ void playScenes (int * hp, int * money, Inventory * inv, FILE *f)
     }
   if (* hp > 0)
     {
-      sceneFour (hp, money, inv, f);
+      sceneFour (hp, inv, f);
     }
   if (* hp <= 0)
     {
@@ -442,7 +448,7 @@ void playScenes (int * hp, int * money, Inventory * inv, FILE *f)
 
 // main
 
-int umbrellaRoute(int *hp, int *money, Inventory *inv);
+void umbrellaRoute(int *hp, int *money, Inventory *inv)
 {
   
   srand(time(NULL));
@@ -452,15 +458,8 @@ int umbrellaRoute(int *hp, int *money, Inventory *inv);
   if (f == NULL)
   {
     printf("Error opening log file.\n");
-    return 1;
   } 
-  
-  Inventory inv;
-  inv.UM = 0;
-  inv.RC = 0;
-  inv.EB = 0;
-  inv.GC = 0;
-  inv.count = 0;
+
 
   printf ("\nYou find yourself in a room full of mirrors, with no clue of how far they go.\n");
   printf ("Suddenly, a milk jug appears, somewhere inside the room.\n");
@@ -482,9 +481,9 @@ int umbrellaRoute(int *hp, int *money, Inventory *inv);
   
   // *** 
   
-  playScenes (&hp, &money, &inv, f);
+  playScenes (hp, money, inv, f);
   
-  if (hp > 0)
+  if (*hp > 0)
   {
     printf ("\nYou have successfully escaped the MIRROR REALM.\n");
   
