@@ -1,5 +1,13 @@
-#ifndef HEADER_FILENAME
-#define HEADER_FILENAME
+/*******************************************************
+*File:	   umbrellaRoute.h
+*Author:   Payton Phillips
+*Purpose:  This program is the header file for the umbrellaRoute. It contains all functions and defined variables.
+*Version:  1.0 April 9, 2026  
+*
+********************************************************/
+
+# ifndef HEADER_FILENAME
+# define HEADER_FILENAME
 
 # define STEPS 4
 
@@ -19,6 +27,4 @@ void sceneFour(int *hp, int *money, Inventory *inv);
 void playRandomScene(int *hp, int *money, Inventory *inv);
 int umbrellaRoute(int *hp, int *money, Inventory *inv);
 
-char quit(void);
-
-#endif
+# endif
