@@ -12,6 +12,7 @@
 # include <stdlib.h>
 # include <time.h>
 
+# include "creamCrop.h"
 # include "umbrellaRoute.h"
 
 // scene one
@@ -24,7 +25,7 @@ void sceneOne (int * hp, int * money, FILE *f)
   int correctPath[STEPS] = {1,3,2,1};
   int playerPath[STEPS];
   
-  printf ("\n***");
+  printf ("\n\n***");
   
   printf ("\n\nStumbling forward, you find MORE mirrors!\n");
   printf ("You let out a sigh of exasperation.\n");
@@ -245,9 +246,9 @@ void sceneThree (int * hp, int * money, Inventory *inv, FILE *f)
 {
   int choice;
   
-  printf ("***");
+  printf ("\n\n***");
   
-  printf ("\nYou open your eyes and find a cow in front of you.\n");
+  printf ("\n\nYou open your eyes and find a cow in front of you.\n");
   printf ("You blink.\n");
   printf ("A random cow.\n");
   printf ("In the middle of a mirror room. place. thingy.\n");
@@ -275,7 +276,7 @@ void sceneThree (int * hp, int * money, Inventory *inv, FILE *f)
   
   // ***
   
-  fprintf (f, "\nYou open your eyes and find a cow in front of you.\n");
+  fprintf (f, "\n\nYou open your eyes and find a cow in front of you.\n");
   fprintf (f, "You blink.\n");
   fprintf (f, "A random cow.\n");
   fprintf (f, "In the middle of a mirror room. place. thingy.\n");
@@ -309,7 +310,7 @@ void sceneThree (int * hp, int * money, Inventory *inv, FILE *f)
     
     
     printf ("You thank the cow and turn around to find a NEW doorway!\n");
-    printf ("You bid the cow fairwell befoe finally bracing yourself for what's too come.\n");
+    printf ("You bid the cow farewell befoe finally bracing yourself for what's to come.\n");
     
     // ***
     
@@ -320,7 +321,7 @@ void sceneThree (int * hp, int * money, Inventory *inv, FILE *f)
     fprintf (f, "\nHe gives you an Umbrella, 10 money, and you earn 15 HP.\n");
     fprintf (f, "(don't ask how. explaination: magic)\n\n");
     fprintf (f, "You thank the cow and turn around to find a NEW doorway!\n");
-    fprintf (f, "You bid the cow fairwell befoe finally bracing yourself for what's too come.\n");
+    fprintf (f, "You bid the cow farewell befoe finally bracing yourself for what's to come.\n");
     
     // *** 
   }
@@ -350,7 +351,7 @@ void sceneFour (int * hp, int * money, Inventory * inv, FILE *f)
   int choice;
   int success = 0;
   
-  printf ("\n***"); // for testing purposes
+  printf ("\n\n***"); // for testing purposes
 
   printf ("\n\nYou find yourself inside an empty room with a single mirror in front of you.\n");
   printf ("You look around at your surroundings, with caution.\n\n");
