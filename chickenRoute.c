@@ -491,8 +491,7 @@ void chickenRoute(int* health, int* money, Inventory *inv)
 
 //Common intro to route
 
-	printf("\e[0mStill disoriented from the accident, you begin stumbling along a path"
-	       " leading to the metro station. You enter the subway and fall unconscious.\n"
+	printf("\e[0mYou decide to take the subway. While en route to the milk store, you fall asleep.\n"
 	       "Upon waking, you find that you've been transported to a penthouse"
 	       " in the midst of a large, unfamiliar city.\nA glance to your right reveals"
 	       " a maid sitting neatly beside your bed, holding an expensive tray of food.\n"
