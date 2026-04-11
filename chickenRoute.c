@@ -1531,7 +1531,8 @@ void chickenRoute(int* health, int* money, Inventory *inv)
 			       "\e[1;33mYou've remembered the recipe! This greatness! This cheesiness! This is the true"
 			       " essence of dairy! This is life itself!\n\e[0mYou hand him the printed recipe, and he vows"
 			       " to dedicate his life to spreading the joys of dairy.\nHe brings about an era of peace,"
-			       " the world united by the grilled cheese. Your work here done, you depart from this world.\n");
+			       " the world united by the grilled cheese.\n");
+			*health = -1083;
 		}
 
 		//if you can't save Johnny, you can still use umbrella to save Charlotte
