@@ -1,3 +1,12 @@
+/*****************************************************
+*
+*File: milkMain
+*Author: Esra P, Fred W, Dean B, Payton P
+*Purpose: House all parts of routes (Final Project)
+*Version: 1.0 Apr 10, 2026
+*
+******************************************************/
+
 #include <stdio.h> 
 #include <stdlib.h>
 #include <time.h>  
