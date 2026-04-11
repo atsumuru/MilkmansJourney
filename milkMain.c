@@ -148,7 +148,20 @@ void main()
 		printf("You take the child under your care and become their surrogate parent.\n\n"
 					"You got the [Parent Ending]!\n");
 	}
-	
+	else if(*health == -1083)
+	{
+		printf("After years of managing the milk supply with Johnny for his dairy business\n"
+			   "You come up with a bold new strategy: Normalize the drinking of raw milk in this world.\n"
+			   "By making fresh milk readily available for purchase on the open market, you reduce Milk-Dealing"
+			   " related crimes and also introduce the population to your favourite beverage.\nIt also improves"
+			   " sales for Johnny's company (to which he's recently been appointed as CEO).\nIn honour of this grand"
+			   " achievement, you are awarded with the Nobel Peace Prize. You are now known around the world as the "
+			   "father of the Modern Milk Market.\nThe population's nutritional balance is improved significantly, "
+			   "increasing the average lifespan for all residents of this world. Children now grow 5 inches taller "
+			   "on average,\nand, thanks to their increased calcium intake, cases of broken bones during youth are "
+			   "reduced by 75%%.\nThe world rejoices. To celebrate this achievement, you dive into a pool of milk.\n"
+					"You got the [Dairy Distributor Ending]!\n");
+	}
 	
 	
 	
