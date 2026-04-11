@@ -1,3 +1,11 @@
+/*****************************************************
+*
+*File: creamCrop
+*Author: Esra P & Payton P
+*Purpose: One piece of a milky adventure (Final Project
+*Version: 1.1 Apr 11, 2026
+*
+******************************************************/
 #ifndef HEADER_FILENAME
 #define HEADER_FILENAME 
 
