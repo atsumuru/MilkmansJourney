@@ -2,10 +2,10 @@
 #ifndef HEADER_FILENAME 
 #define HEADER_FILENAME 
 
-int randGen(int param)
-int confusion()
+int randGen(int param);
+int confusion();
 
-int bottleRoute()
+int bottleRoute();
 
 
 
