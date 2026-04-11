@@ -14,7 +14,9 @@
 
 # include "creamCrop.h"
 # include "umbrellaRoute.h"
+
 # define STEPS 4 
+
 # define RESET "\e[0m"
 # define YEL "\e[1;33m"
 # define BLU "\e[1;34m"
@@ -368,6 +370,19 @@ void sceneFour (int * hp, Inventory * inv, FILE *f) //put in fprintfs
   
   printf ("\nYou sigh. " YEL "You just want your jug of milk!\n" RESET);
 
+    // ***
+  
+  fprintf (f, "\n\nYou find yourself inside an empty room with a single mirror in front of you.\n");
+  fprintf (f, "You look around at your surroundings, with caution.\n\n");
+  fprintf (f, "You look towards the mirror, slowly moving forward.\n");
+  fprintf (f, "You find the milk jug.\n");
+  fprintf (f, "Inside the mirror.\n");
+  fprintf (f, "You examine the mirror.\n");
+  fprintf (f, "\nYou sigh. You just want your jug of milk!\n");
+  
+  // ***
+  
+  
 while (success == 0)
   {
     printf (BLU"\nYou choose to: \n");
@@ -390,11 +405,24 @@ while (success == 0)
         printf ("You enter the mirror.\n");
         
         success = 1;
+
+        // ***
+        
+        fprintf (f,"\nYou tap the mirror, only to find it's a portal.\n");
+        fprintf (f, "You enter the mirror.\n");
+        
+        // ***
       }
       else
       {
         printf ("\nYou bang on the mirror. The milk jug disappears.\n");
         printf (YEL "Try again! :)\n" RESET);
+
+        // ***
+        
+        printf ("\nYou bang on the mirror. The milk jug disappears.\n");
+        
+        // ***
       }
     }
     else if (choice == 2)
@@ -404,6 +432,13 @@ while (success == 0)
       printf (YEL "\nTry again! :)\n" RESET);
       
       * hp -= 1;
+
+      // ***
+      
+      fprintf (f, "\nYou break the mirror but all that's left is broken glass on an empty frame.\n");
+      fprintf (f, "You lose 1 HP.");
+      
+      // ***
     }
     else if (choice == 3 && inv -> RC == 1)
     {
@@ -412,6 +447,14 @@ while (success == 0)
       printf ("You move through the portal.\n");
       
       success = 1;
+
+      // ***
+      
+      fprintf (f, "\nYou throw the Rubber Chicken of Doom at the mirror. It goes into it.\n");
+      fprintf (f, "You blink.\n");
+      fprintf (f, "You move through the portal.\n");
+      
+      // ***
     }
   }
 }
