@@ -12,13 +12,11 @@
 # define GRN "\e[0;32m"
 
 void sceneOne(int *hp, int *money);
-void sceneTwo(int *hp, int *money);
+void sceneTwo(int *hp);
 void sceneThree(int *hp, int *money, Inventory *inv);
-void sceneFour(int *hp, int *money, Inventory *inv);
+void sceneFour(int *hp, Inventory *inv);
 
-void playRandomScene(int *hp, int *money, Inventory *inv);
+void playScenes (int * hp, Inventory * inv)
 int umbrellaRoute(int *hp, int *money, Inventory *inv);
-
-char quit(void);
 
 #endif
