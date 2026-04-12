@@ -9,17 +9,17 @@
 #ifndef HEADER_FILENAME 
 #define HEADER_FILENAME 
 
-void sceneOne(int *h, int *m, FILE* f);
+void scene1(int *h, int *m, FILE* f);
 
-void sceneTwo(int *h, int *m, FILE* f);
+void scene2(int *h, int *m, FILE* f);
 
-void sceneThree(int *h, int *m, FILE* f); 
+void scene3(int *h, int *m, FILE* f); 
 
-void sceneFour(int *h, int *m, Inventory *inv, FILE* f);
+void scene4(int *h, int *m, Inventory *inv, FILE* f);
 
-void sceneFive(int *h, int *m, FILE* f);
+void scene5(int *h, int *m, FILE* f);
 
-void grilledRoute(int *health, int *money, Inventory *inv); 
+ 
 
 
 

@@ -170,12 +170,12 @@ int confusion()  //triggers upon invalid player input
 
 
 
-int bottleRoute()
+void bottleRoute()
 {
   FILE *f = fopen ("AdventLog.txt","a");
   int param = 1;
   //printf("Debugging/ ");
-  int randNum =randGen(param);
+  int randNum = randGen(param);
 
   
 // randGen(2);
@@ -206,7 +206,7 @@ int bottleRoute()
   //Debugging done
   
   
-  char playerSelect = 0;
+  int playerSelect = 0;
   
   printf("\e[0mYou wake up on the floor in a forest clearing, overshadowed by the size of a large door right in front of you. Pulling yourself back onto your feet, and feel enticed about the door and what riches could lie behind it. Pressing your weight against the door, you eventually feel the old, rusted"                 "door part from its hinges after spending who knows how long there. Entering a large cave opening, you spot your first challenge.\n");
   fprintf(f,"you wake up on the floor in a forest clearing, overshadowed by the size of a large door right in front of you. Pulling yourself back onto your feet,"
@@ -247,7 +247,7 @@ int bottleRoute()
     printf("\033[90m==============");
     printf("\n\e[0mChose option 1\n");
     //trigger outcome 1
-    int randNum = randGen(3);
+    randNum = randGen(3);
     printf("%d",randNum);
     //param 4
     if(randNum == 1)
@@ -277,7 +277,7 @@ int bottleRoute()
     printf("\033[90m==============");
     printf("\n\e[0mChose option 2\n");
     //trigger outcome 2
-    int randNum = randGen(5);
+    randNum = randGen(5);
     printf("%d",randNum);
     //param 5
     if(randNum == 1)
@@ -325,7 +325,7 @@ int bottleRoute()
     //param 3
     printf("\033[90m==============");
     printf("\n\e[0mChose option 3\n");
-    int randNum = randGen(3);
+    randNum = randGen(3);
     printf("%d",randNum);
   
     if(randNum == 1)
@@ -399,7 +399,7 @@ int bottleRoute()
     printf("\033[90m==============\e[0m");
     printf("\nChose option 1\n");
     //trigger outcome 1
-    int randNum = randGen(4);
+    randNum = randGen(4);
     printf("%d",randNum);
     //param 4
     if(randNum == 1)
@@ -434,7 +434,7 @@ int bottleRoute()
     printf("\033[90m==============\e[0m");
     printf("\nChose option 2\n");
     //trigger outcome 2
-    int randNum = randGen(5);
+    randNum = randGen(5);
     printf("%d",randNum);
     //param 5
     if(randNum == 1)
@@ -470,7 +470,7 @@ int bottleRoute()
     //param 3
     printf("\033[90m==============\e[0m");
     printf("\nChose option 3\n");
-    int randNum = randGen(3);
+    randNum = randGen(3);
     printf("%d",randNum);
   
     if(randNum == 1)
@@ -544,7 +544,7 @@ int bottleRoute()
     printf("\033[90m==============\e[0m");
     printf("\nChose option 1\n");
     //trigger outcome 1
-    int randNum = randGen(2);
+    randNum = randGen(2);
     printf("%d",randNum);
     if(randNum == 1)
       {
@@ -569,7 +569,7 @@ int bottleRoute()
     printf("\033[90m==============\n\e[0m");
     printf("\nChose option 2\n");
     //trigger outcome 2
-    int randNum = randGen(3);
+    randNum = randGen(3);
     printf("%d",randNum);
     if(randNum == 1)
       {
@@ -660,7 +660,7 @@ int bottleRoute()
     fprintf(f,"\nYou purchased 10 health\n");
     //(money -$5)
     //trigger outcome 1
-    int randNum = randGen(1);
+    randNum = randGen(1);
     printf("%d",randNum);
     if(randNum == 1)
       {
@@ -681,8 +681,8 @@ int bottleRoute()
     //(Money -$10)
     //(Money +$20)
     //trigger outcome 2
-    int randNum = randGen(1);
-    printf("%d",randNum);
+    randNum = randGen(1);
+    printf("%d", randNum);
     if(randNum == 1)
       {
       //printf("Triggered outcome 1\n");
@@ -695,11 +695,12 @@ int bottleRoute()
     {
     printf("\033[90m==============\e[0m");
     printf("\nChose option 3\n");
-    printf("\e[1;33mYou decide to try and show the shopkeeper your (100%) discount coupon, he isn't having it. He gives you the gaze of death.\nTake Take \e[1;31m2,147,483,647 damage!\n\e[0m");
-    fprintf(f,"You decide to try and show the shopkeeper your (100%) discount coupon, he isn't having it. He gives you the gaze of death.\nTake Take 2,147,483,647 damage!\n");
+    
+    printf("\e[1;33mYou decide to try and show the shopkeeper your '100 percent' discount coupon, he isn't having it. He gives you the gaze of death.\nTake \e[1;31m2,147,483,647 damage!\n\e[0m");
+    fprintf(f,"You decide to try and show the shopkeeper your '100 percent' discount coupon, he isn't having it. He gives you the gaze of death.\nTake 2,147,483,647 damage!\n");
     //(health -= 100)
-    int randNum = randGen(1);
-    printf("%d",randNum);
+    randNum = randGen(1);
+    printf("%d", randNum);
   
     if(randNum == 1)
       {
@@ -765,13 +766,7 @@ int bottleRoute()
                                             
                                             
     //The ending
-    printf("\n\nCongratulate yourself and pat yourself on the back because you have done it, you have overcome all of the trials within the dungeon. Now it is time for your reward. You skip up to the treasure room door, and with a joyful gesture, you place your hand on the ring shaped handle and push it open, causing the massive 10 foot ornate door to creak open. The room inside is dim, enticing you to walk in. Only to find the door slam and lock behind you as the walls warp into some new, unforseeable form. You can only brace yourself for what is to come next...");
+    printf("\n\n\e[0mCongratulate yourself and pat yourself on the back because you have done it, you have overcome all of the trials within the dungeon. Now it is time for your reward. You skip up to the treasure room door, and with a joyful gesture, you place your hand on the ring shaped handle and push it open, causing the massive 10 foot ornate door to creak open. The room inside is dim, enticing you to walk in. Only to find the door slam and lock behind you as the walls warp into some new, unforseeable form. You can only brace yourself for what is to come next...");
     fprintf(f,"\n\nCongratulate yourself and pat yourself on the back because you have done it, you have overcome all of the trials within the dungeon. Now it is time for your reward. You skip up to the treasure room door, and with a joyful gesture, you place your hand on the ring shaped handle and push it open, causing the massive 10 foot ornate door to creak open. The room inside is dim, enticing you to walk in. Only to find the door slam and lock behind you as the walls warp into some new, unforseeable form. You can only brace yourself for what is to come next...");
     fclose(f);
 }
-
-int main()
-  {
-  bottleRoute();
-  return 0;
-  }

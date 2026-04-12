@@ -17,7 +17,7 @@
 
 
 
-void sceneOne(int *h, int *m, FILE* f) 
+void scene1(int *h, FILE* f) 
 {
 	printf("You walk up some stalls that look like they were made by a groups of 10 year olds when you hear a commotion up ahead. You turn "
 				"the corner to see two stallowners arguing in the middle of the pathway. Their endless back and forth is taking up the whole "
@@ -29,7 +29,7 @@ void sceneOne(int *h, int *m, FILE* f)
 	int c = 0; 
 	int skill_check;
 	
-	char junk;
+	
 	while (c == 0)
 	{ 
 		skill_check = rand()%12+1;
@@ -38,7 +38,7 @@ void sceneOne(int *h, int *m, FILE* f)
 		scanf("%d", &c);
 		while(c != 1 && c != 2 && c != 3) 
 		{
-			junk = getchar();
+			getchar();
       printf("\e1;31mYour thoughts seem jumbled. Try again.\e[0m\n> ");
       scanf("%d", &c); 
 		}
@@ -111,7 +111,7 @@ void sceneOne(int *h, int *m, FILE* f)
 } 
 
 
-void sceneTwo(int *h, int *m) 
+void scene2(int *h, int *m, FILE* f) 
 {
 	printf("As you walk down the stalls, you hear a loud crash as metal trashcan falls over in the way. A raccoon crawls out, "
 				"chewing on a old bone. It spots you and drops the bone, growling fiercly. You try to back away but it just growls\n"
@@ -122,14 +122,14 @@ void sceneTwo(int *h, int *m)
 
 	int c; 
 	int skill_check = rand()%12+1; 
-	char junk;
+	
 	
 	printf("What do you do? \e[1;34m\n1) Distract the raccoon \n2) Fight it \n3) Run like a Coward \e[0m\n");
 	printf("> ");
 	scanf("%d", &c);
 	while(c != 1 && c != 2 && c != 3)
 	{
-		junk = getchar(); 
+		getchar(); 
 		printf("\e[1;31mYour thoughts seem jumbled. Try again. \e[0m\n> ");
     scanf("%d", &c); 
 	} 
@@ -168,7 +168,7 @@ void sceneTwo(int *h, int *m)
 			scanf("%d", &action);
 			while(action != 1 && action != 2) 
 			{
-				junk = getchar();
+				getchar();
       	printf("\e[1;31mYour thoughts seem jumbled. Try again. \e[0m\n> ");
       	scanf("%d", &action); 
 			} 
@@ -240,7 +240,7 @@ void sceneTwo(int *h, int *m)
 } 
 
 
-void sceneThree(int *h, int *m, FILE* f)
+void scene3(int *h, int *m, FILE* f)
 {
 	printf("After looking around for awhile, you come up to a more 'professional' stall surrounded by goats?? You walk up it "
 				"and a guy carrying bottles of goat's milk comes from behind the stall.\nHe look up at you in surprise, "
@@ -256,14 +256,14 @@ void sceneThree(int *h, int *m, FILE* f)
 				"Not exactly what you were looking for, but you might as well browse. \n");
 	
 	int c = 0;
-	char junk;
+	
 	while(c == 0) 
 	{
 		printf("\n\e[1;33m'Take a look.' \e[1;34m\n1) Old Bandage \n2) Goat Yogurt \n3) Nothing \e[0m\n> ");
 		scanf("%d", &c); 
 		while(c != 1 && c != 2 && c != 3) 
 		{
-			junk = getchar();
+			getchar();
       printf("\e[1;31mYour thoughts seem jumbled. Try again. \e[0m\n> ");
       scanf("%d", &c); 
 		}
@@ -295,10 +295,10 @@ void sceneThree(int *h, int *m, FILE* f)
   fprintf(f, "You leave the stallowner, the goat smell giving you a headache.\n");
 } 
 
-void sceneFour(int *h, int *m, Inventory *inv, FILE* f)
+void scene4(Inventory *inv, FILE* f)
 { 
 	int c; 
-	char junk;
+  
 	if((*inv).EB != 1) //Make it check for the empty bottle in inventory
 	{
 		printf("You pass by an empty dirt path. Strange, but you feel like something's supposed to be there.\n");
@@ -313,7 +313,7 @@ void sceneFour(int *h, int *m, Inventory *inv, FILE* f)
 		scanf("%d", &c); 
 		while(c != 1 && c != 2) 
 		{
-			junk = getchar();
+			getchar();
       printf("\e[1;31mYour thoughts seem jumbled. Try again. \e[0m\n> ");
       scanf("%d", &c); 
 		} 
@@ -343,7 +343,7 @@ void sceneFour(int *h, int *m, Inventory *inv, FILE* f)
 	}
 } 
 
-void sceneFive(int *h, int *m, FILE* f) 
+void scene5(int *h, int *m, FILE* f) 
 {
 	printf("You stare confused at a sign for a stall, unable to discern the gibberish scrawled across it. As you puzzle it over "
 				"in your mind, you feel something small slip into your pocket and grab your wallet. You spin around and see a little\n"
@@ -355,7 +355,7 @@ void sceneFive(int *h, int *m, FILE* f)
 				"bit with fearful eyes.\n");
 
 	int c;  
-	char junk;
+	
 	int skill_check = rand()%12+1;
 	
 	printf("What do you do? \e[1;34m\n1) Scold them \n2) Let them have it \n3) Yeet the child \e[0m\n");
@@ -363,7 +363,7 @@ void sceneFive(int *h, int *m, FILE* f)
 	scanf("%d", &c);
 	while(c != 1 && c != 2 && c != 3) 
 	{
-		junk = getchar();
+		getchar();
     printf("\e[1;31mYour thoughts seem jumbled. Try again.\e[0m\n> ");
     scanf("%d", &c); 
 	} 
@@ -431,8 +431,7 @@ void grilledRoute(int *health, int *money, Inventory *inv) //Include the invento
 
 	int health_change = 0; 
 	int money_change = 0; 
-	char quitting;
-	char rid_letter; 
+	char quitting; 
 
 	printf("\nYou come to an active intersection and press the crosswalk button, but after waiting for a total of 25 seconds, you grew impatient."
 				"\nYou look around and spot a large wall of bushes. You decide it's better than just waiting there and take a shortcut through\nthe "
@@ -453,17 +452,18 @@ void grilledRoute(int *health, int *money, Inventory *inv) //Include the invento
       {
 				 break;
       } 
-			printf("\n HP: %d   Money: %d\n"
-						"-------------------------------------------\n", *health, *money); 
-      fprintf(f, "\n HP: %d   Money: %d\n"
-						"-------------------------------------------\n", *health, *money);
+			
 
 	    scene_select = rand()%5+1;
 			if(scene_list[scene_select - 1] != 0) 
-			{
+			{ 
+        printf("\n HP: %d   Money: %d\n"
+						"-------------------------------------------\n", *health, *money); 
+        fprintf(f, "\n HP: %d   Money: %d\n"
+						"-------------------------------------------\n", *health, *money);
 				if(scene_select == 1) 
 				{ 
-					sceneOne(&health_change, &money_change, f);  
+					scene1(&health_change, f);  
 					scene_list[scene_select - 1] = 0; 
 					*health += health_change; 
 
@@ -472,7 +472,7 @@ void grilledRoute(int *health, int *money, Inventory *inv) //Include the invento
 					quitting = quit(); 
 					while (quitting != 'y' && quitting != 'n') 
 					{ 
-						rid_letter = getchar(); 
+						getchar(); 
 						printf("\e[1;31mYour thoughts seem jumbled. \e[0mShould you go or nah? (y/n) "); 
 						scanf(" %c", &quitting);
 					}
@@ -489,7 +489,7 @@ void grilledRoute(int *health, int *money, Inventory *inv) //Include the invento
 				} 
 				else if(scene_select == 2) 
 				{ 
-					sceneTwo(&health_change, &money_change, f);
+					scene2(&health_change, &money_change, f);
           scene_list[scene_select - 1] = 0;
           *health += health_change;
 					if(*health < 0) 
@@ -502,7 +502,7 @@ void grilledRoute(int *health, int *money, Inventory *inv) //Include the invento
           quitting = quit();
           while (quitting != 'y' && quitting != 'n')
           {
-            rid_letter = getchar();
+            getchar();
             printf("\e[1;31mYour thoughts seem jumbled. \e[0mShould you go or nah? (y/n) ");
             scanf(" %c", &quitting);
           }
@@ -518,7 +518,7 @@ void grilledRoute(int *health, int *money, Inventory *inv) //Include the invento
 				} 
         else if(scene_select == 3)
         {
-          sceneThree(&health_change, &money_change, inv, f);
+          scene3(&health_change, &money_change, f);
           scene_list[scene_select - 1] = 0;
           *health += health_change;
 
@@ -527,7 +527,7 @@ void grilledRoute(int *health, int *money, Inventory *inv) //Include the invento
           quitting = quit();
           while (quitting != 'y' && quitting != 'n')
           {
-            rid_letter = getchar();
+            getchar();
             printf("\e[1;31mYour thoughts seem jumbled. \e[0mShould you go or nah? (y/n) ");
             scanf(" %c", &quitting);
           }
@@ -544,16 +544,14 @@ void grilledRoute(int *health, int *money, Inventory *inv) //Include the invento
         }
         else if(scene_select == 4)
         {
-          sceneFour(&health_change, &money_change, f);
+          scene4(inv, f);
           scene_list[scene_select - 1] = 0;
-          *health += health_change;
-
-          *money += money_change;
+          
 
           quitting = quit();
           while (quitting != 'y' && quitting != 'n')
           {
-            rid_letter = getchar();
+            getchar();
             printf("\e[1;31mYour thoughts seem jumbled. \e[0mShould you go or nah? (y/n) ");
             scanf(" %c", &quitting);
           }
@@ -569,7 +567,7 @@ void grilledRoute(int *health, int *money, Inventory *inv) //Include the invento
 				} 
 				else if(scene_select == 5) 
 				{ 
-					sceneFive(&health_change, &money_change, f);
+					scene5(&health_change, &money_change, f);
           scene_list[scene_select - 1] = 0;
           *health += health_change;
 					if(money_change == -150) 
@@ -584,7 +582,7 @@ void grilledRoute(int *health, int *money, Inventory *inv) //Include the invento
           quitting = quit();
           while (quitting != 'y' && quitting != 'n')
           {
-            rid_letter = getchar();
+            getchar();
             printf("\e[1;31mYour thoughts seem jumbled. \e[0mShould you go or nah? (y/n) ");
             scanf(" %c", &quitting);
           }

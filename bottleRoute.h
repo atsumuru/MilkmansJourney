@@ -10,9 +10,9 @@
 #define HEADER_FILENAME 
 
 int randGen(int param);
-int confusion();
+int confusion(void);
 
-int bottleRoute();
+void bottleRoute(void);
 
 
 

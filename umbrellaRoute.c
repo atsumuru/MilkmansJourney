@@ -459,7 +459,7 @@ while (success == 0)
   }
 }
 
-void playScenes (int * hp, Inventory * inv, FILE *f)
+void playScenes (int * hp, int * money, Inventory * inv, FILE *f)
 {
   if (* hp > 0)
     {

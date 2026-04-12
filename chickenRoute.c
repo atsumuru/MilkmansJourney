@@ -361,7 +361,7 @@ void job(int* hp, int* money, FILE* f)
 			}
 		}
 
-		if(hp>0&&enemyHP<=0)
+		if(*hp>0 &&enemyHP<=0)
 		{
 			*money+=25;
 			printf("You were awarded $25 for your victory. You now hold $%d.\n", *money);
