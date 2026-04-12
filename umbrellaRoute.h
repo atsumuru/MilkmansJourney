@@ -11,12 +11,13 @@
 # define RED "\e[1;31m"
 # define GRN "\e[0;32m"
 
-void sceneOne(int *hp, int *money);
-void sceneTwo(int *hp);
-void sceneThree(int *hp, int *money, Inventory *inv);
-void sceneFour(int *hp, Inventory *inv);
+void sceneOne(int *hp, int *money, FILE *f);
+void sceneTwo(int *hp, FILE *f);
+void sceneThree(int *hp, int *money, Inventory *inv, FILE *f);
+void sceneFour(int *hp, Inventory *inv, FILE *f);
 
-void playScenes (int * hp, Inventory * inv)
-int umbrellaRoute(int *hp, int *money, Inventory *inv);
+void playRandomScene(int *hp, int *money, Inventory *inv, FILE *f);
+void umbrellaRoute(int *hp, int *money, Inventory *inv);
+
 
 #endif

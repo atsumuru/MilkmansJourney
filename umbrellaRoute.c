@@ -354,7 +354,7 @@ void sceneThree (int * hp, int * money, Inventory *inv, FILE *f)
 
 // scene four
 
-void sceneFour (int * hp, Inventory * inv, FILE *f) //put in fprintfs
+void sceneFour (int * hp, Inventory * inv, FILE * f) 
 {
   int choice;
   int success = 0;
