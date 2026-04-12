@@ -1,3 +1,11 @@
+/***************************************************************
+File: makefile
+*Author: Esra P.
+*Purpose: 
+*Version: 1.0 Apr 11, 2026  
+*Acknowledgment of AI usage: AI was used to help write the 
+*	makefile due to the complexity of its nature.
+****************************************************************/
 CC = gcc 
 CFLAGS = -Wall -Wextra -std=c11 -MMD -MP 
 
